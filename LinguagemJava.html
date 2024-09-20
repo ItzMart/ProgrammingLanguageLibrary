@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="logo.ico" type="image/x-icon">
-    <title>C#/C++</title>
+    <title>Java</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>C#/C++</h1>
+        <h1>Java</h1>
     </header>
 
     <button class="sidebar-toggle" onclick="toggleSidebar()">☰ Menu</button>
@@ -36,7 +36,7 @@
         }
 
         function loadCtxt() {
-            fetch('ficheiro/C.txt')
+            fetch('ficheiro/Java.txt')
                 .then(response => response.text())
                 .then(txtContent => {
                     const lines = txtContent.trim().split('\n');
