@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.ico" type="image/x-icon">
+    <title>C#/C++</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>C#/C++</h1>
+    </header>
+
+    <button class="sidebar-toggle" onclick="toggleSidebar()">☰ Menu</button>
+
+    <div id="sidebar">
+        <button class="close-sidebar" onclick="toggleSidebar()">✖ Fechar</button>
+        <input type="text" class="search-bar" placeholder="Pesquisar..." oninput="filterList()">
+        <ul class="index-list" id="indexList">
+            <!-- Itens da lista serão inseridos aqui -->
+        </ul>
+    </div>
+
+    <div class="code-box" id="codeBox">
+        <h2 id="codeTitle"></h2>
+        <pre id="codeContent" translate="no"></pre>
+        <button class="copy-btn" id="copyButton" onclick="copyCode()">Copiar código</button>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('show');
+        }
+
+        function loadCtxt() {
+            fetch('ficheiro/C.txt')
+                .then(response => response.text())
+                .then(txtContent => {
+                    const lines = txtContent.trim().split('\n');
+                    let currentTitle = '';
+                    let currentCode = '';
+                    const indices = [];
+                    const codes = {};
+
+                    lines.forEach(line => {
+                        if (line.startsWith('-- ')) {
+                            if (currentTitle) {
+                                codes[currentTitle] = currentCode.trim();
+                            }
+                            currentTitle = line.substring(3).trim();
+                            currentCode = '';
+                            indices.push(currentTitle);
+                        } else {
+                            currentCode += line + '\n';
+                        }
+                    });
+
+                    if (currentTitle) {
+                        codes[currentTitle] = currentCode.trim();
+                    }
+
+                    const indexList = document.getElementById('indexList');
+                    indices.forEach(title => {
+                        const li = document.createElement('li');
+                        li.textContent = title;
+                        li.onclick = () => showCode(title, codes[title]);
+                        indexList.appendChild(li);
+                    });
+                })
+                .catch(error => console.error('Erro ao carregar C.txt:', error));
+        }
+
+        function showCode(title, code) {
+            document.getElementById('codeTitle').textContent = title;
+            document.getElementById('codeContent').textContent = code;
+            document.getElementById('codeBox').style.display = 'block';
+            toggleSidebar();
+        }
+
+        function copyCode() {
+            const codeContent = document.getElementById('codeContent').textContent;
+            navigator.clipboard.writeText(codeContent).then(() => {
+                const copyBtn = document.getElementById('copyButton');
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = 'Código copiado!';
+                setTimeout(() => {
+                    copyBtn.textContent = originalText;
+                }, 3000);
+            });
+        }
+
+        function filterList() {
+            const searchTerm = document.querySelector('.search-bar').value.toLowerCase();
+            const listItems = document.querySelectorAll('.index-list li');
+            listItems.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        }
+
+        window.onload = loadCtxt;
+    </script>
+</body>
+</html>
