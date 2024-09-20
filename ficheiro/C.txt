@@ -1,0 +1,2736 @@
+-- Ler nome, endereço, telefone e mostrar.
+#include <stdio.h>
+#include <stdlib.h>
+#include<locale.h>
+int main()
+{
+    setlocale(LC_ALL,"portuguese");
+    char nome[30], endereco[30], telefone[13]; 
+    printf("Diga o seu nome: "); 
+    gets(nome); 
+    printf("Diga o seu endereco: "); 
+    gets(endereco); 
+    printf("Diga o seu telefone: "); 
+    gets(telefone); 
+    printf("\n\nNome: %s\n\n",nome); 
+    printf("Endereco: %s\n\n",endereco); 
+    printf("Telefone: %s\n\n",telefone); 
+    system("pause");
+    return 0; 
+} 
+
+-- Ler nome, sexo e idade. Se sexo for feminino(F) e idade menor que 25, imprimir o nome da pessoa e a palavra “Selecionada”. Caso contrário, imprimir “Não selecionada”.
+#include <stdlib.h>
+#include <stdio.h>
+#include<locale.h>
+int main()
+{
+	setlocale(LC_ALL,"portuguese");
+	char nome[30], sexo; 
+	int idade; 
+	printf("Diga o seu nome: "); 
+	gets(nome); 
+	printf("Diga o seu sexo (M/F): "); 
+	scanf("%c",&sexo); 
+	printf("Diga a sua idade: "); 
+	scanf("%d",&idade); 
+	if (sexo == 'f' && idade < 25 || sexo == 'F' && idade < 25) 
+		printf("\n%s: Selecionada.\n\n", nome);
+	else 
+		printf("\nNão selecionada.\n\n"); 
+	system("pause");
+	return 0; 
+}
+
+-- Faça um programa que peça quatro nomes e, de seguida, calcule e mostre quantas letras tem cada um.
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include<locale.h>
+int main()
+{
+	setlocale(LC_ALL,"portuguese");
+	int x, tam; 
+	char nome[30]; 
+	for (x=1; x <= 4; x++) 
+	{ 
+		printf("Digite um nome: ");
+		gets(nome); // na variável tam ficará guardado quantas letras tem o nome
+		tam = strlen(nome); //string length (strlen) conta o nº de letras numa string
+		printf("\nO nome %s tem %d\ letras.\n\n",nome, tam); 
+	}
+	system ("pause");
+	return 0;
+} 
+
+-- Receber do teclado um nome e o imprima tantas vezes quantos os seus caracteres.
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include<locale.h>
+int main()
+{
+	setlocale(LC_ALL,"portuguese");
+	int x,tam; 
+	char nome[30]; 
+	printf("Digite um nome: ");
+	gets(nome); 
+	tam = strlen(nome); 
+	for (x=1; x <= tam; x++) 
+		printf("\n%s",nome);
+	printf("\n");
+	system("Pause");
+	return 0; 
+} 
+
+-- Ler uma mensagem e mostrar quantas vogais tem. Considerar minúsculas, maiúsculas. A função que conta as letras de uma frase é strlen(variável,x), em que x é a posição da letra na frase. Exemplo: curso = "curso de redes". strelen(curso,3) mostra a letra s, pois a posição da primeira letra da palavra curso é 0.
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include<locale.h>
+int main()
+{
+	setlocale(LC_ALL,"portuguese");
+	int x,tam; 
+	int ca, ce, ci, co, cu;
+	char frase[100]; 
+	ca = ce = ci = co = cu = 0; // contadores de vogais
+	printf("Digite uma frase: ");
+	gets(frase);
+	tam = strlen(frase);
+	for (x=0; x <= tam; x++)
+	{ 
+		if (frase[x] == 'a' || frase[x] == 'A') 
+			ca++;
+		if (frase[x] == 'e' || frase[x] == 'E')
+			ce++;
+		if (frase[x] == 'i' || frase[x] == 'I') 
+			ci++;
+		if (frase[x] == 'o' || frase[x] == 'O') 
+			co++;
+		if (frase[x] == 'u' || frase[x] == 'U')
+			cu++;
+	}
+	printf("\n\nA frase tem:\n");
+	if (ca == 1)
+		printf("\n%d letra a",ca);
+	else
+		printf("\n%d letras a",ca);
+	if (ce == 1)
+		printf("\n%d letra e",ce);
+	else
+		printf("\n%d letras e",ce);
+	if (ci == 1)
+		printf("\n%d letra i",ci);
+	else
+		printf("\n%d letras i",ci);
+	if (co == 1)
+		printf("\n%d letra o",co);
+	else
+		printf("\n%d letras o",co);
+	if (cu == 1)
+		printf("\n%d letra u",cu);
+	else
+		printf("\n%d letras u",cu);
+	printf("\n\n");
+	system ("pause");
+	return 0; 
+}
+
+-- Receber um nome do teclado e imprimir quantas letras "A" e “a” tem o nome. 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include<locale.h>
+int main()
+{
+	setlocale(LC_ALL,"portuguese");
+	char nome[30]; 
+	int x,tam, ca=0, cA=0; 
+	printf("\n\t Diga um nome: "); 
+	gets(nome);
+	tam=strlen(nome); 
+	for (x=0; x <= tam-1; x++) 
+	{ 
+		if (nome[x] == 'a') 
+			ca++;
+		if (nome[x] == 'A')
+			cA++;
+	}
+	printf("\n O nome %s ",(nome));
+	if (ca == 1)
+		printf("\ntem %d letra A e ",cA);
+	else
+		printf("\ntem %d letras A",cA);
+	if (ca == 1)
+		printf("\ntem %d letra a e ",ca);
+	else
+		printf("\ntem %d letras a",ca);
+	printf("\n");
+	system ("pause");
+	return(0); 
+} 
+
+
+-- Receber um nome do teclado e usar uma função para imprimí-lo de trás pra frente.
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include<locale.h>
+int main()
+{
+    setlocale(LC_ALL,"portuguese");
+    int x,y,tam; 
+    char nome[30]; 
+    printf("Digite um nome: "); 
+    gets(nome); 
+    tam = strlen(nome); 
+    printf("\n O nome de trás pra frente é: "); 
+    for (x=tam-1; x >= 0; x--)
+    {
+        printf("%c \n",nome[x]);
+    }
+    system ("pause");
+    return 0; 
+}
+
+-- Escreva um programa que encontre uma string dentro de outra, usando a função strstr().
+/* strstr.c */
+#include <stdio.h>
+#include <string.h>
+#include <locale.h>
+#include <stdlib.h>
+
+int main(void)
+{
+	setlocale(LC_ALL,"portuguese");
+	char *psResultado;
+   	char sFrase[] = "Isto é um teste";
+   	printf ("\nFrase: %s", sFrase);
+	printf("\nEndereço Inicial = %d", sFrase );
+	/* A função retornará o endereço correspondente à localização do "to" */
+   	psResultado = strstr(sFrase, "to");
+	printf("\nEndereço inicial para a pesquisa = %d\n", psResultado );
+   	printf("\nEndereço inicial para a pesquisa = %s\n", psResultado );
+   	system ("pause");
+   	return 0;
+}
+
+-- Receber um nome e imprimir as letras que estão na posição ímpar.
+#include <string.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <math.h>
+#include <stdio.h>
+#include <locale.h>
+int main() { 
+    int pp=1, tam, x; 
+    char APELIDO[100]; 
+    printf ("Informe um apelido:"); 
+    gets(APELIDO); 
+    tam=strlen(APELIDO); 
+    printf("\nAs letras na posicao impar sao: ",x); 
+    while(pp<=tam-1) { 
+        printf(" %c ",APELIDO[pp]); 
+        pp=pp+2; 
+    } 
+    printf ("\n"); 
+    printf("\n\tNome digitado: %s\t",APELIDO); 
+    printf ("\n\n"); 
+    system("PAUSE"); 
+    return 0; 
+}  
+
+-- Faça um programa que leia um nome e imprima as 4 primeiras letras do nome.
+#include <string.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+	setlocale(LC_ALL,"portuguese");	
+    char nome[30];
+	int i;
+	printf("Digite um nome: ");
+	gets(nome);
+	printf("\As quatro primeiras letras: ");
+	for (i=0; i<4; i++)
+	{
+		printf("%c ", nome[i]);
+	}
+	return 0;
+}
+
+-- Escreva um programa que peça ao utilizador um byte na forma de uma string, constituída por 8 bits (uns e zeros); de seguida, deve substituir os caracteres ‘0’ por ‘1’ e vice-versa. Exemplo de uma string com números (neste caso, um byte): ‘0011001’.
+#include <string.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <stdio.h>
+#include <locale.h>
+int main() 
+{
+	setlocale(LC_ALL,"portuguese");
+	char byte[8];
+	int i;
+	
+	printf("Digite o seu byte: ");
+	gets(byte);
+	for(i=0; i<8; i++)
+	{
+		if(byte[i] == '0' )
+		{
+			byte[i] = '1';
+		}
+		else
+		{
+			byte[i] = '0';
+		}
+	}
+	printf("\nByte trocado: %s\n", byte);
+	system("pause");
+	return 0;
+}
+
+-- Faça um programa que receba uma string. O programa deverá imprimir a string sem as suas vogais. 
+#include <string.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <stdio.h>
+#include <locale.h>
+int main() {
+	setlocale(LC_ALL,"portuguese");
+	int i, tam;
+	char frase[50];
+	printf ("Diga uma frase: ");
+	gets (frase);
+	//scanf ("%s",&frase);
+	tam = strlen (frase);
+	printf ("Frase sem vogais: ");
+	for (i=0; i< tam; i++)
+	{
+		//if (frase[i] != 'a' && frase[i] != 'e' && frase[i] != 'i' && frase[i] != 'o' && frase[i] != 'u' && frase[i] != 'A' && frase[i] != 'E' && frase[i] != 'I' && frase[i] != 'O' && frase[i] != 'U')
+		//{
+		//	printf ("%c", frase[i]);
+		//}
+		switch (frase[i])
+		{
+			case 'a':
+				break;
+			case 'e':
+				break;
+			case 'i':
+				break;
+			case 'o':
+				break;
+			case 'u':
+				break;
+			case 'A':
+				break;
+			case 'E':
+				break;
+			case 'I':
+				break;
+			case 'O':
+				break;
+			case 'U':
+				break;
+			default:
+				printf ("%c", frase[i]);
+		}
+	}
+	return 0;
+}
+
+-- Escreva um programa que receba dois números inteiros e mostre o maior deles. Deve usar uma função para encontrar o maior dos números.
+#include <stdio.h>
+#include<locale.h>
+int compara(int a, int b); //define o protótipo da função
+/* As funções devem ser declaradas antes da main() */
+int main()
+    {
+    setlocale(LC_ALL,"portuguese");
+    int n1, n2, res; 
+    printf("Digite dois valores separados por espaço:\n"); 
+    scanf("%d %d", &n1, &n2); 
+    res = compara(n1, n2); //chama a função “compara”, com os dois números dados como parâmetros
+    printf("O maior número é : %d\n", res);
+    return 0; 
+    }
+
+int compara(int a, int b) //não consideramos a hipótese de os números serem iguais…
+{ 
+    if (a < b) 
+    { 
+        return b;
+    }
+    else
+    { 
+        return a;
+    } 
+}
+
+-- Escreva uma função que, dado um número real passado como parâmetro, retorne a parte inteira e a parte decimal desse número por referência.
+#include <stdio.h>
+#include <stdlib.h>
+#include<locale.h>
+void separa(float num, int *x, float *y) {
+    *x = (int)num;
+    *y = num - *x;
+}
+
+int main()
+{
+    setlocale(LC_ALL,"portuguese");
+    float num, frac;
+    int inteira;
+    printf ("Diga um número real (com vírgula): ");
+    scanf("%f", &num);
+    separa(num, &inteira, &frac);
+    printf("O número %.2f tem uma parte inteira: %i e uma parte decimal: %.2f\n", num, inteira, frac);
+    system ("pause");
+    return 0;
+}
+
+-- Elabore um programa que receba três notas de um aluno e uma letra. Numa função, pesquisa:  a.	se a letra for ‘A’, a função deve calcular a média aritmética das notas do aluno; b.	se a letra for ‘P’, deverá calcular a média ponderada, com pesos 50%, 30% e 20%.  Retorne a média calculada para o programa principal.
+#include <stdio.h>
+#include <stdlib.h>
+#include<locale.h>
+
+float media(float n1, float n2, float n3, char op) 
+{
+    if (op == 'A' || op == 'a') {
+        return ((n1 + n2 + n3) / 3);
+    } else if (op == 'P' || op == 'p') {
+        return (n1*0,5 + n2*0,3 + n3*0,2) / 100; 
+    }
+}
+
+int main()
+{
+    setlocale(LC_ALL,"portuguese");
+    float nota1, nota2, nota3, calc;
+    char op;
+    printf("Digite a opção da média [A (Aritmética) ou P (Ponderada)]: ");
+    scanf("%c", &op);
+    printf("Digite as notas: \n");
+    scanf("%f %f %f", &nota1, &nota2, &nota3);
+    calc = media(nota1, nota2, nota3, op);
+    printf("Média= %.2f\n", calc);
+    system ("pause");
+    return 0;
+}
+
+-- Elabore um programa que receba um vetor contendo 10 valores inteiros. Numa função deve retornar por referência o maior elemento do vetor e, noutra função, o número de vezes que esse elemento ocorreu no vetor.
+#include <stdio.h>
+#include <stdlib.h>
+#include<locale.h>
+
+int maiorVet(int tam, int vet[10]) 
+{
+    int maior = vet[0], i;
+    for (i = 1; i < tam; i++) {
+        if (vet[i] > maior) {
+            maior = vet[i];
+        }
+    }
+    return maior;
+}
+
+int contaValorVet(int vet[], int teste, int tam) {
+    int cont=0, i;
+    for (i = 0; i < tam; i++) {
+        if (vet[i] == teste) {
+            cont++;
+        }
+    }
+    return cont;
+}
+
+void maiorQtdVet(int vet[], int tam, int *maior, int *cont) {
+    *maior = maiorVet(tam, vet);
+    *cont  = contaValorVet(vet, *maior, tam);
+    return;
+}
+
+main()
+{
+	setlocale(LC_ALL,"portuguese");
+    int vet[10], maior, i, cont, tam = 10;
+    printf("Diga 10 valores inteiros para o vetor. \n");
+    for (i=0; i<10; i++){
+    	printf("%iº elemento: ", i+1);
+    	scanf("%i", &vet[i]);
+    }
+    maiorQtdVet(vet, 10, &maior, &cont);
+    printf("O maior valor do vetor é %i e aparece %i vezes\n", maior, cont);
+    system ("pause");
+    return 0;
+}
+
+-- Criar um jogo da velha para 2 jogadores. O jogo deve informar quando houver jogadas inválidas, considerar 3×3 o tamanho do tabuleiro.
+/* lista_mat002.c */
+#include <stdio.h>
+#include<locale.h>
+
+#define _X_ 'X'
+#define _O_ 'O'
+ 
+#define D_VALIDACAO
+ 
+void desenha( char as_velha[3][3] );
+ 
+int main(void)
+{
+setlocale(LC_ALL,"portuguese");
+
+   int i,j;
+   int ijogada;
+   char as_velha[3][3]; /* matriz que conterá o jogo da velha */
+   char ss_nome_jogador_01[40];
+   char ss_nome_jogador_02[40];
+ 
+   printf("\nEntre com o nome do jogador 01->");
+   scanf("%s", &ss_nome_jogador_01);
+   printf("\nEntre com o nome do jogador 02->");
+   scanf("%s", &ss_nome_jogador_02);
+ 
+   printf("\n%s, voce vai jogar com o simbolo X", ss_nome_jogador_01);
+   printf("\n%s, voce vai jogar com o simbolo O", ss_nome_jogador_02);
+ 
+   for( i=0;i<3;i++)
+   {
+      for( j=0;j<3;j++)
+      {
+         as_velha[i][j]=' ';
+      }
+   }
+ 
+   desenha(as_velha);
+ 
+   ijogada = _X_;
+   while(1)
+   {
+ 
+#ifdef D_VALIDACAO
+      do
+      {
+#endif
+         if( ijogada == _X_ )
+         {
+            printf("\nE a vez do %s", ss_nome_jogador_01);
+         }
+         else
+         {
+            printf("\nE a vez do %s", ss_nome_jogador_02);
+         }
+ 
+         printf("\nInforme as coordenadas");
+         printf("\nCoordenada i ->");
+         scanf("%d", &i);
+         printf("\nCoordenada j ->");
+         scanf("%d", &j);
+ 
+#ifdef D_VALIDACAO
+         if( as_velha[i][j] != ' ' )
+         {
+            printf("\nVocê é um estupido!!! Estas coordenadas já estão ocupadas..." );
+         }
+      }
+      while( as_velha[i][j] != ' ' );
+#endif
+ 
+      as_velha[i][j]=ijogada;
+      desenha(as_velha);
+ 
+      /* inverte jogadores */
+      if( ijogada == _X_ )
+      {
+         ijogada = _O_;
+      }
+      else
+      {
+         ijogada = _X_;
+      }
+   }
+   return 0;
+}
+ 
+ 
+void desenha( char as_velha[3][3] )
+{
+   printf("\n %c |", as_velha[0][0] );
+   printf(" %c |",   as_velha[0][1] );
+   printf(" %c  ",   as_velha[0][2] );
+   printf("\n---|---|---");
+   printf("\n %c |", as_velha[1][0] );
+   printf(" %c |",   as_velha[1][1] );
+   printf(" %c  ",   as_velha[1][2] );
+   printf("\n---|---|---");
+   printf("\n %c |", as_velha[2][0] );
+   printf(" %c |",   as_velha[2][1] );
+   printf(" %c  ",   as_velha[2][2] );
+   return;
+}
+
+=================Quem ganha?=========================
+/* lista_mat002.c */
+#include <stdio.h>
+#include <locale>
+#define _X_ 'X'
+#define _O_ 'O'
+ 
+#define D_VALIDACAO
+ 
+void desenha(char as_velha[3][3]);
+ 
+int main(void)
+{
+   int i,j;
+   int ijogada;
+   setlocale(LC_ALL,"portuguese");
+
+   char as_velha[3][3]; /* matriz que conterá o jogo da velha */
+   char ss_nome_jogador_01[40];
+   char ss_nome_jogador_02[40];
+ 
+   printf("\nDiga o nome do 1º jogador 01->");
+   scanf("%s", &ss_nome_jogador_01);
+   printf("\nDiga o nome do 2º jogador 02->");
+   scanf("%s", &ss_nome_jogador_02);
+ 
+   printf("\n%s vai jogar com o simbolo X", ss_nome_jogador_01);
+   printf("\n%s vai jogar com o simbolo O", ss_nome_jogador_02);
+ 
+   for( i=0;i<3;i++)
+   {
+      for( j=0;j<3;j++)
+      {
+         as_velha[i][j]=' ';
+      }
+   }
+ 
+   desenha(as_velha);
+ 
+   ijogada = _X_;
+   while(1)
+   {
+ 
+#ifdef D_VALIDACAO
+      do
+      {
+#endif
+         if( ijogada == _X_ )
+         {
+            printf("\nÉ a vez do %s", ss_nome_jogador_01);
+         }
+         else
+         {
+            printf("\nÉ a vez do %s", ss_nome_jogador_02);
+         }
+ 
+         printf("\nDiga as coordenadas, de 0 a 2");
+         printf("\nLinha ->");
+         scanf("%d", &i);
+         printf("\nColuna ->");
+         scanf("%d", &j);
+ 
+#ifdef D_VALIDACAO
+         if( as_velha[i][j] != ' ' )
+         {
+            printf("\nÉs um estupido!!! Esaas coordenadas já estão ocupadas..." );
+         }
+      }
+      while( as_velha[i][j] != ' ' );
+#endif
+ 
+      as_velha[i][j]=ijogada;
+      desenha(as_velha);
+      /* ==============Verificar se alguém ganhou================== */
+      if (as_velha[0][0] == as_velha[1][1] == as_velha[2][2] == 'X')
+      {
+      	printf("\nParabéns! Ganhou o %s!!!", ss_nome_jogador_01);
+	  }
+	  if (as_velha[0][0] == as_velha[0][1] == as_velha[0][2] == 'X')
+      {
+      	printf("\nParabéns! Ganhou o %s!!!", ss_nome_jogador_01);
+	  }
+      if (as_velha[1][0] == as_velha[1][1] == as_velha[1][2] == 'X')
+      {
+      	printf("\nParabéns! Ganhou o %s!!!", ss_nome_jogador_01);
+	  }
+	  if (as_velha[2][0] == as_velha[2][1] == as_velha[2][2] == 'X')
+      {
+      	printf("\nParabéns! Ganhou o %s!!!", ss_nome_jogador_01);
+	  }
+	  if (as_velha[0][0] == as_velha[1][0] == as_velha[2][0] == 'X')
+      {
+      	printf("\nParabéns! Ganhou o %s!!!", ss_nome_jogador_01);
+	  }
+      if (as_velha[0][1] == as_velha[1][1] == as_velha[2][1] == 'X')
+      {
+      	printf("\nParabéns! Ganhou o %s!!!", ss_nome_jogador_01);
+	  }
+	  if (as_velha[0][2] == as_velha[1][2] == as_velha[2][2] == 'X')
+      {
+      	printf("\nParabéns! Ganhou o %s!!!", ss_nome_jogador_01);
+	  }
+	  
+	  if (as_velha[0][0] == as_velha[1][1] == as_velha[2][2] == '_0_')
+      {
+      	printf("\nParabéns! Ganhou o %s!!!", ss_nome_jogador_01);
+	  }
+	  if (as_velha[0][0] == as_velha[0][1] == as_velha[0][2] == '_0_')
+      {
+      	printf("\nParabéns! Ganhou o %s!!!", ss_nome_jogador_01);
+	  }
+      if (as_velha[1][0] == as_velha[1][1] == as_velha[1][2] == '_0_')
+      {
+      	printf("\nParabéns! Ganhou o %s!!!", ss_nome_jogador_01);
+	  }
+	  if (as_velha[2][0] == as_velha[2][1] == as_velha[2][2] == '_0_')
+      {
+      	printf("\nParabéns! Ganhou o %s!!!", ss_nome_jogador_01);
+	  }
+	  if (as_velha[0][0] == as_velha[1][0] == as_velha[2][0] == '_X_')
+      {
+      	printf("\nParabéns! Ganhou o %s!!!", ss_nome_jogador_01);
+	  }
+      if (as_velha[0][1] == as_velha[1][1] == as_velha[2][1] == '_0_')
+      {
+      	printf("\nParabéns! Ganhou o %s!!!", ss_nome_jogador_01);
+	  }
+	  if (as_velha[0][2] == as_velha[1][2] == as_velha[2][2] == '_0_')
+      {
+      	printf("\nParabéns! Ganhou o %s!!!", ss_nome_jogador_01);
+	  }
+	  
+     
+      /* inverte jogadores */
+      if( ijogada == _X_ )
+      {
+         ijogada = _O_;
+      }
+      else
+      {
+         ijogada = _X_;
+      }
+   }
+   return 0;
+}
+
+void desenha( char as_velha[3][3] )
+{
+   printf("\n %c |", as_velha[0][0] );
+   printf(" %c |",   as_velha[0][1] );
+   printf(" %c  ",   as_velha[0][2] );
+   printf("\n---|---|---");
+   printf("\n %c |", as_velha[1][0] );
+   printf(" %c |",   as_velha[1][1] );
+   printf(" %c  ",   as_velha[1][2] );
+   printf("\n---|---|---");
+   printf("\n %c |", as_velha[2][0] );
+   printf(" %c |",   as_velha[2][1] );
+   printf(" %c  ",   as_velha[2][2] );
+   return;
+}
+
+-- Desenvolva um programa com uma função que faça a troca dos valores de duas variáveis passadas como parâmetros. Todas as leituras e respostas devem ser tratadas na main().
+#include <stdio.h>
+#include<locale.h>
+#include <stdlib.h>
+void troca(int * x, int * y) /*Função para trocar os valores de a e b, que passam a ser x e y como ponteiros */
+{
+   int aux;
+   aux = *x;
+   *x= *y;
+   *y = aux;
+   return;
+}
+
+ int main()
+{
+   setlocale(LC_ALL,"portuguese");
+   int a, b;
+   printf ("Diga um valor para a variável a: ");
+   scanf ("%i", &a);
+   printf ("\nDiga um valor para a variável b: ");
+   scanf ("%i", &b);
+   printf("Valores originais: a = %i, b = %i.\n", a, b);
+   troca(&a, &b); /*chama a função para trocar os valores, onde são passados os endereços de memória de a e b, que serão recebidos pela função troca() como ponteiros*/
+   printf("\nValores trocados: a = %d, b = %d.\n", a, b);
+   system ("pause");
+   return 0;
+}
+
+-- Faça um programa que modifique as vogais de uma frase. O programa deve ler uma frase (max. 100 caracteres) e armazená-la num vetor. Mostre a frase lida trocando as vogais, isto é, ●	trocar 'a' pelo 'u', ●	'e' pelo 'o', ●	'i' pelo 'a', ●	'o' pelo 'i' e o ●	'u' pelo 'e'. Use uma função void (procedimento) para realizar as trocas e uma outra para mostrar a frase trocada. A função deve ter como parâmetro um ponteiro char referente ao vetor.Dica: Use a função gets() da biblioteca string.h para realizar a leitura da frase. Use a estrutura switch para realizar as trocas. Considere apenas as letras minúsculas.
+#include<stdio.h>
+#include<string.h>
+#include<locale.h>
+#include <stdlib.h>
+void troca(char *vet) 
+{
+	int i, tam;
+	tam = strlen(vet);
+	for (i=0; i < tam; i++) 
+	{
+	 	switch(*vet) 
+	 	{
+		    case 'a':
+			    *vet = 'u';
+			    break;
+		    case 'e':
+			    *vet='o';
+			    break;
+		    case 'i':
+			    *vet='a';
+			    break;
+		    case 'o':
+			    *vet='i';
+			    break;
+		    case 'u':
+			    *vet='e';
+				break;
+		}	
+		vet++;
+	}
+}
+
+void mostra(char *vet) 
+{
+	int i;
+	char *ptr;
+	ptr = vet;
+	printf("\n\n");
+	for (i=0; i < strlen(vet); i++) 
+	{
+		printf("%c", *ptr);
+		ptr++;
+	}
+}
+
+int main()
+{
+	char vet[100];
+	printf("\n\nDigite uma frase: ");
+	gets(vet);
+	troca(vet); //chama a função para trocar as letras
+	mostra(vet); //chama a função para mostrar as letras
+	printf("\n");
+	system("pause");
+	return 0;
+}
+
+-- Faça um programa que, usando uma função recursiva, calcule a potência de um número inteiro.
+#include <stdio.h>
+#include<locale.h>
+#include <stdlib.h>
+int potencia(int base, int expoente)
+{ 
+    if(expoente == 0) 
+    return 1; 
+    else return (base * potencia(base, expoente-1)); 
+} 
+
+int main()
+{ 
+    setlocale(LC_ALL,"portuguese");
+    int base, expoente, resultado;
+    printf ("Diga a base para cálculo de uma potência: ");
+    scanf("%i", &base);
+    printf ("Diga o expoente: ");
+    scanf("%i", &expoente);
+    resultado = potencia(base,expoente);
+    printf("%d elevado a %d = %d\n", base, expoente, resultado);
+    system ("pause");
+    return 0; 
+}
+
+-- Faça duas funções para multiplicar dois números, sendo uma iterativa e outra recursiva. Analise as duas chamadas no programa principal e diga, passo a passo, o resultado obtido em cada uma. 
+#include <stdio.h>
+#include<locale.h>
+
+long int mult(int x, int y){ 
+	long int res=0; 
+	while( y != 0){
+		res += x; y--; 
+	}
+	return(res); 
+} 
+
+long int multRec(int x, int y){ 
+	if (y == 0) 
+		return 0; 
+	else 
+		return(x + multRec(x, y-1)); 
+}
+
+int main(){ 
+	setlocale(LC_ALL,"portuguese");
+	int a, b;
+	printf ("Diga os valores a multiplicar.");
+	printf("\nValor de a: ");
+	scanf("%i", &a);
+	printf("\nValor de b: ");
+	scanf("%i", &b);
+	printf("\nResultado Iterativo: %d",mult(a,b)); 
+	printf("\nResultado Recursivo: %d\n\n",multRec(a,b)); 
+	return 0; 
+} 
+
+-- Faça um programa contendo uma função que receba três números inteiros como parâmetros, representando horas, minutos e segundos, e os converta em segundos. Exemplo: 2 h, 40 min e 10 s correspondem a 9.610 segundos.
+#include <stdio.h>
+#include <conio.h>
+#include<locale.h>
+void conversao(int hh, int mm, int ss)
+{
+    int converter;    
+    converter = (hh*60*60)+(mm*60)+(ss);    
+    printf("\n\nO valor convertido corresponde a: %d segundos", converter);    
+}
+
+int main()
+{
+    setlocale(LC_ALL,"portuguese");
+    int hh, mm, ss;
+    printf("Conversao de hr/min para segundos\n\nDigite o horário para conversao: (hh:mm:ss) \n\n");
+    
+    printf("Hora(s): ");
+    scanf("%d*c", &hh);
+    
+    printf("\nMinuto(s): ");
+    scanf("%d*c", &mm);
+    
+    printf("\nSegundo(s): ");
+    scanf("%d*c", &ss);
+    
+    conversao(hh, mm, ss);
+    return 0;  
+}
+
+-- Faça um programa que mostre as 13 cartas de cada naipe.
+#include<stdio.h>
+#include<locale.h>
+int main() {
+setlocale(LC_ALL,"portuguese");
+char carta[] = {'A', '2', '3', '4', '5', '6', '7', '8', '9', '1', 'V', 'D', 'K'};
+int i, naipe;
+setlocale(LC_ALL,"Portuguese");
+printf(" Copas \t Ouros \t Paus \t Espadas \n");
+for(i=0;i<13;i++)
+{
+	printf(" %c \3 \t", carta[i]);
+    printf(" %c \4 \t", carta[i]);
+    printf(" %c \5 \t", carta[i]);
+    printf(" %c \6 \t", carta[i]);
+    printf ("\n");
+}
+
+return 0;
+}
+
+-- Faça um programa que crie uma função onde é preenchida uma matriz 3x3 com nomes. De seguida, faça outra função para mostrar a matriz. 
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+preenche_matriz(char matriz[3][3][30]){ //função para preencher a matriz
+	int i, j;
+	for (i=0; i<3; i++){
+		for (j=0; j<3; j++){
+			printf("\nDiga um nome para a posição %i %i da matriz: ", i, j);
+			gets(matriz[i][j]);
+		}
+	}
+}
+
+mostra_matriz(char matriz[3][3][30]){ //função para mostrar a matriz
+
+	int i, j;
+	printf("\nMatriz original: \n");
+	for(i=0; i<3; i++){
+		for (j=0; j<3; j++){
+			printf("%s\t", matriz[i][j]);
+		}
+		printf("\n");
+	}
+}
+int main()
+{
+	setlocale(LC_ALL,"portuguese");
+	char nome[10];
+	char matriz[3][3][30];
+	int i, j;
+	preenche_matriz(matriz); //chama a função para preencher a matriz
+	mostra_matriz(matriz); //chama a função para mostrar a  matriz
+
+	system("pause");
+	return (0);
+}
+
+-- Crie um programa em C que preencha uma matriz (unidimensional)  de strings com palavras digitadas pelo utilizador. De seguida, deve apresentar um menu onde o utilizador escolhe se deseja ver as palavras nas posições pares ou ímpares. O vetor de strings (ou matriz unidimensional) deve possuir 5 palavras, em que cada palavra pode ter no máximo 30 caracteres.
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+#define QTDSTR 5 //nº de palavras no vetor de strings
+void preenche_matrstr(char matriz[][31]){ //função para preencher o vetor
+	int i;
+	printf("Preencher o vetor de strings: \n\n");
+	for(i = 0; i < QTDSTR; i++){
+		printf ("Digite uma palavra para a posição %d: ", i+1);
+		gets(matriz[i]);
+	}
+	system("cls"); //limpar o écran
+}
+main() {
+	char matrstr [5][31];
+	int i, opcao;
+setlocale(LC_ALL,"portuguese");
+	preenche_matrstr(matrstr); //chama a função para preencher o vetor
+	do{
+		printf("Escolha uma das opções: \n\n");
+		printf("1. Mostrar posições pares\n");
+		printf("2. Mostrar posições ímpares\n");
+		printf("3. Sair\n\nopcao: ");
+		scanf("%d", &opcao);
+		switch(opcao){
+			case 1:
+				for(i = 0; i < QTDSTR; i++)
+					if(!((i+1)%2)) //ver se o índice é par
+				printf("palavra %d: %s\n", i+1, matrstr[i]);
+				break;
+			case 2:
+				for(i = 0; i < QTDSTR; i++)
+					if((i+1)%2) //ver se o índice é ímpar
+						printf("palavra %d: %s\n", i+1, matrstr[i]);
+				break;
+			case 3:
+				printf("\nAté à próxima!\n");
+				break;
+			default:
+				printf("Opção inválida!!! Digite 1, 2, ou 3. \n");
+		}
+		system("pause");
+		system("cls");
+	}while(opcao != 3);
+}
+
+-- Crie um programa para ler 3 notas e, numa função, calcular a média delas. O resultado deverá ser exibido na main().
+#include <stdio.h>
+#include <locale.h>
+#include <stdlib.h>
+ler_somar_notas (){ //função para ler e somar as notas
+	int nota1, nota2, nota3;
+	
+	printf ("Digite a 1ª nota: ");
+	scanf("%i", &nota1);
+	
+	printf ("Digite a 2ª nota: ");
+	scanf("%i", &nota2);
+	
+	printf ("Digite a 3ª nota: ");
+	scanf("%i", &nota3);
+	
+	return (nota1 + nota2 + nota3);
+}
+
+float calcula_media(int *soma){ /* Função para calcular a média das notas. Recebe a variável soma como um ponteiro de soma do programa principal.
+
+	float media;
+	media = *soma/3;
+	return (media);
+}
+
+int main()
+{
+	setlocale(LC_ALL,"portuguese");
+	int soma;
+	float media;
+	soma = ler_somar_notas(); /*A variável soma toma o valor da soma das notas, calculada na função “ler_somar_notas”.
+
+	media = calcula_media(&soma); /*variável media toma o valor da média das notas, calculada na função “calcula_media”. A variável soma dada à função tem de ter o sinal &, pois queremos dar a memória da variável e não o valor. Ela será aceite pela função como um ponteiro.
+
+	printf("\nA média das notas é %.1f", media);
+	return (0);
+}
+
+-- Faça um programa que use funções para ler nome, sexo e idade. Use uma função para validar a entrada do sexo. Na main(), deve pesquisar: se sexo for feminino e idade estiver compreendida entre 18 e 25 anos, imprimir o nome da pessoa e a frase “Pessoa selecionada”. Caso contrário, imprimir “Pessoa não selecionada”. 
+#include <stdlib.h>
+#include <stdio.h>
+#include<locale.h>
+
+valida_sexo(){ //Função para validar a entrada do sexo da candidata.
+	char sexo;
+	do{
+		printf("\nDiga o seu sexo (M/F): "); 
+		scanf("%c",&sexo);
+		if (sexo != 'F' && sexo != 'f' && sexo != 'M' && sexo != 'm'){
+			{
+				printf ("\nSexo errado. Diga F/M");
+			}
+		}
+	}
+	while (sexo != 'F' && sexo != 'f' && sexo != 'M' && sexo != 'm');
+	return (sexo);
+}
+int main()
+{
+	setlocale(LC_ALL,"portuguese");
+	char nome[30], sexo; 
+	int idade;
+	printf("Diga o seu nome: "); 
+	gets(nome);
+	sexo = valida_sexo(); //A variável sexo toma o valor final da função” valida_sexo”.
+	printf("Diga a sua idade: ");
+	scanf("%d",&idade); 
+	if (sexo == 'f' && idade < 25 && idade > 18|| sexo == 'F' && idade < 25 && idade > 18) 
+		printf("\n%s: Selecionada.\n\n", nome);
+	else 
+		printf("\n%s: Não selecionada.\n\n", nome); 
+	system("pause");
+	return 0; 
+}
+
+-- Faça um programa em C (com a estrutura do...while) que leia 20 valores inteiros e use diferentes funções para cada uma das seguintes questões: a.	Encontrar e mostrar o maior valor; b.	Encontrar e mostrar o menor valor; c.	Calcular e mostrar a média dos números lidos;
+#include<stdio.h> 
+#include<locale.h> 
+#include <stdlib.h>
+int encontra_maior(int *num, int *maior){
+	int i;
+	if (*num > *maior)
+		*maior = *num;
+	return (*maior);
+}
+
+int encontra_menor(int *num, int *menor){
+	if (*num < *menor)
+		*menor = *num;
+	return (*menor);
+}
+
+float calc_media(int *num, int *soma)
+{
+	float media;
+	*soma = *soma + *num;
+	media = *soma / 20;
+	return (media);	
+}
+
+int main()
+{
+	int num[20], maior, menor, i, soma;
+	float media;
+	setlocale(LC_ALL,"Portuguese");
+	soma = 0;
+	i = 0;
+	printf ("\nDiga 20 números inteiros: ");
+	do
+	{
+		printf ("\n%iº: ",i+1);
+		scanf ("%i", &num[i]);
+		maior = encontra_maior(&num[i], &maior);
+		menor = encontra_menor(&num[i], &menor);
+		media = calc_media(&num[i], &soma);
+		i++;
+	}while (i < 20);
+	
+	printf ("\nO maior número digitado foi %i, o menor foi %i e a média é de %.1f\n", maior, menor, media);
+	system("pause");
+	return 0;
+}
+
+-- Faça um programa em C que leia 10 notas e use funções para calcular a média das notas, a melhor e a pior. Os resultados devem ser mostrados na main().
+#include<stdio.h>
+#include <stdlib.h>
+#include<locale.h> 
+
+float media (int n, float *vnotas); //protótipo da função media
+float melhor_nota (int n, float *vnotas); //protótipo da função melhor_nota
+float pior_nota (int n, float *vnotas); //protótipo da função pior_nota
+int main (void)
+{
+	float vnotas[10];
+	float media_notas, melhor, pior;
+	int i;
+	setlocale(LC_ALL,"Portuguese");
+	printf("Digite as 10 notas: \n");
+	for (i = 0; i < 10; i++)
+	{
+		printf("%iª: ", i+1);
+		scanf("%f", &vnotas[i]);
+	}
+	media_notas = media(10, vnotas);
+	melhor = melhor_nota(10, vnotas);
+	pior = pior_nota(10, vnotas);
+	printf ( "\nMelhor nota = %.1f \n", melhor );
+	printf ( "\nPior nota = %.1f \n", pior );
+	printf ( "\nMedia das notas = %.1f \n", media_notas );
+	system("pause");
+	return 0;
+}
+/* Função para cálculo da média
+Parâmetros:
+Recebe a quantidade de elementos n
+Recebe o endereço inicial do vetor notas em *vnotas
+Retorna a média na variável média
+*/
+float media (int n, float *vnotas){
+	int i;
+	float media = 0, soma = 0;
+	for (i = 0; i < n; i++)
+	soma = soma + vnotas[i];
+	media = soma / n;
+	return media;
+}
+
+float melhor_nota (int n, float *vnotas){
+	int i;
+	float melhor = 0.0;
+	for (i = 0; i < n; i++){
+		if (vnotas[i] > melhor){
+			melhor = vnotas[i];
+		}
+	}
+	return (melhor);
+}
+float pior_nota (int n, float *vnotas){
+	int i;
+	float pior = 20;
+	for (i = 0; i < n; i++){
+		if (vnotas[i] < pior){
+			pior = vnotas[i];
+		}
+	}
+	return (pior);
+}
+
+-- Faça um programa que acrescente uma palavra a um ficheiro de texto chamado “Arquivo_palavra.txt” (modo “a”). No final pode abrir o ficheiro criado na pasta do disco, para ver se as palavras lá estão.
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+int main(void) //ter void ou não ter é a mesma coisa, neste caso!
+{
+  setlocale(LC_ALL,"portuguese");
+  FILE *pont_arq; // cria variável ponteiro para o ficheiro
+  char palavra[20]; // variável (vetor) do tipo caracter
+  
+  //abre o arquivo com tipo de abertura “a” (add)
+  pont_arq = fopen("arquivo_palavra.txt", "a");
+  
+  //testando se o ficheiro foi realmente aberto
+  if(pont_arq == NULL)
+  {
+  	printf("Erro na abertura do ficheiro!");
+  	return 1;
+  }
+  
+  printf("Escreva uma palavra para testar a gravação do ficheiro: ");
+  scanf("%s", &palavra); /* Como é só uma palavra (sem espaços no meio), podemos usar o scanf. Se fosse uma frase, teríamos de usar o gets */
+  
+  //fprintf para armazenar a string no ficheiro
+  fprintf(pont_arq, "\n%s", palavra);
+  
+  //fclose para fechar o ficheiro
+  fclose(pont_arq);
+  printf("Dados gravados com sucesso!");
+  return(0);
+}
+
+-- Grave uma frase no mesmo ficheiro de texto do exercício anterior (Arquivo_palavra.txt), usando fputc (guardar caracter a caracter). Depois de correr este programa, pode abrir o ficheiro Arquivo_palavra.txt (na pasta) para confirmar a gravação da frase.
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <locale.h>
+int main(void)
+{
+  setlocale(LC_ALL,"portuguese");
+  FILE *pont_arq;
+  char frase[50];
+  int i;
+  int tamanho;
+
+  //abrir o ficheiro em modo write, ou escrita:
+  pont_arq = fopen("arquivo_palavra.txt","w"); 
+  //se o ficheiro já existia na pasta, foi apagado e criado um novo!
+
+ //testar se o ficheiro foi aberto corretamente:
+  if (pont_arq == NULL)
+  {
+    printf("Erro ao tentar abrir o ficheiro!");
+    exit(1);
+  }
+  
+  //ler a frase (do écran) a ser guardada no ficheiro:
+  printf("Digite a frase a ser gravada no ficheiro: ");
+  gets(frase); //gets = “get string”:  ler string do écran para a variável “frase”
+  
+  //contar a quantidade de caracteres da string “frase” e armazenar o resultado na variável “tamanho”
+  tamanho = strlen(frase); //strlen = string length: conta os caracteres de uma string, incluíndo espaços
+  
+  //vamos gravar caracter a caracter:
+  for(i=0; i < tamanho; i++)
+  {
+    fputc(frase[i], pont_arq); //fputc = “file put character”: guardar no ficheiro todos os caracteres da frase
+  }
+  //fechar o ficheiro
+  fclose(pont_arq);
+  return 0;
+}
+
+-- Grave num ficheiro “arquivo.txt” a frase “Programando em linguagem C.”, usando fputs (grava uma frase com string).
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <locale.h>
+int main(void)
+{
+  setlocale(LC_ALL,"portuguese");
+  FILE *pont_arq;
+  int r;
+  pont_arq = fopen("arquivo.txt", "w");
+ 
+  //Testa a abertura do ficheiro
+ if (pont_arq == NULL)
+ {
+   printf("Erro ao tentar abrir o ficheiro!");
+   exit(1);
+ }
+
+ //Grava strings no ficheiro e atribuir o êxito à variável r
+  r = fputs("Programando em Linguagem C.", pont_arq);
+ 
+  //Verifica se os dados foram gravados com sucesso, usando o valor de r
+  if( r == EOF)
+  {
+      printf("Erro ao tentar gravar os dados! \n");
+  }
+  else
+    {
+       printf("Dados gravados com sucesso. \n");
+    }
+   //fecha o ficheiro
+  fclose(pont_arq);
+  return 0;
+}
+
+-- Leia o conteúdo do ficheiro “Arquivo_palavra.txt”, usando fgetc (caracter a caracter). Este ficheiro foi usado no exercício 1.
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <locale.h>
+int main(void)
+{
+  	setlocale(LC_ALL,"portuguese");
+  	FILE *pont_arq;
+  	char c;
+  	pont_arq = fopen("Arquivo_palavra.txt","r");
+
+	//testar se o ficheiro foi aberto corretamente:
+  	if (pont_arq == NULL)
+  	{
+  	  printf("Erro ao tentar abrir o ficheiro!");
+  	  exit(1);
+  	}
+	
+ 	 printf("Caracteres lidos do ficheiro: \n");
+ 	 //Ciclo para ler todos os caracteres enquanto não encontra EOF:
+ 	 do
+ 	 {  
+		//faz a leitura caracter a caracter, no ficheiro apontado por pont_arq
+    		c = fgetc(pont_arq);
+      
+    		//mostra o caracter lido
+    		printf("%c" , c);
+  	}while (c != EOF); //enquanto for diferente de final de ficheiro (EOF)
+
+	fclose(pont_arq); //fecha o ficheiro
+	printf ("\n");
+ 	system("pause"); //pausa, apenas no Windows
+  	return(0);
+}
+
+-- Crie um programa em C que: a. crie/abra um ficheiro de texto, com o nome "Texto.txt"; b. peça ao utilizador que diga diversos caracteres para serem gravados no ficheiro, até que diga o caractere '0' (fim da entrada de dados); c. Feche o ficheiro e abra-o novamente para leitura; d. leia-o caracter a caracter, e mostre (printf) os caracteres armazenados.
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <locale.h>
+
+int main() {
+    setlocale(LC_ALL, "portuguese");
+    FILE *farq;  // O ponteiro chama-se “farq”
+    char car;
+
+    // Abrir ficheiro em modo “acrescenta” (append) a:
+    farq = fopen("arq.txt", "a");
+
+    // Testar se o ficheiro foi aberto sem problemas:
+    if (farq == NULL) {
+        fprintf(stderr, "\nfopen() falhou no ficheiro %s na linha %d", __FILE__, __LINE__);
+        exit(EXIT_FAILURE);
+    }
+
+    // Solicitar ao usuário que digite caracteres
+    printf("\nEscreva um caracter qualquer, ou '0' para terminar: ");
+    car = getchar();  // Ler o primeiro caracter
+    fflush(stdin);    // Limpar o caracter enter do teclado
+
+    while (car != '0') {  // Enquanto o caracter for diferente de '0'
+        fputc(car, farq);  // Guarda o caracter no ficheiro
+        printf("\nEscreva um caracter qualquer, ou '0' para terminar: ");
+        car = getchar();  // Ler outro caracter
+        fflush(stdin);    // Limpar o caracter enter do teclado
+    }
+
+    // Fechar o ficheiro que estava aberto em modo "acrescenta"
+    fclose(farq);
+
+    // Abrir o mesmo ficheiro em modo leitura (read) "r":
+    farq = fopen("arq.txt", "r");  // Abre o ficheiro para leitura
+
+    // Testar se o ficheiro foi aberto sem problemas:
+    if (farq == NULL) {
+        fprintf(stderr, "\nfopen() falhou no ficheiro %s na linha %d", __FILE__, __LINE__);
+        exit(EXIT_FAILURE);
+    }
+
+    // Ler e mostrar o texto gravado
+    printf("\n\nLer e mostrar o texto gravado....\n");
+    car = fgetc(farq);  // Ler o primeiro caracter do ficheiro
+    while (car != EOF) {  // Enquanto for diferente de EOF (final de ficheiro)
+        printf("%c", car);  // Mostrar um caracter
+        car = fgetc(farq);  // Ler o próximo caracter
+    }
+
+    // Fechar o ficheiro
+    fclose(farq);
+    system("pause");
+}
+
+-- Faça um programa que leia um ficheiro de texto do disco (Arquivo_palavra.txt), e mostre quantas linhas tem esse ficheiro. Nota: o ficheiro tem de já existir no disco!
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <locale.h>
+#define TAM_LINHA 1000 //define uma variável universal constante
+int main()
+{
+   	setlocale(LC_ALL,"portuguese");
+   	FILE *arquivo; //ponteiro chama-se “arquivo”
+	//abrir o ficheiro em modo leitura (r):
+    arquivo = fopen("Arquivo_palavra.txt","r");
+    long int numero_de_linhas = 0;
+    char str_aux[TAM_LINHA]; //vetor str_aux[] é dimencionado a TAM_LINHA
+
+    //enquanto “não feof” (file end of file) do ponteiro arquivo, conta o número de linhas
+    while(!feof(arquivo)) //enquanto diferente de feof (file end of file) do ficheiro
+    {
+	    //ler uma linha do ficheiro, que termina quando encontrar “\n”
+    	fgets(str_aux, TAM_LINHA, arquivo); //”\n” faz parte da string
+		numero_de_linhas++; //numero_de_linhas = numero_de_linhas + 1
+   	}
+    fclose(arquivo);
+    printf("O ficheiro Texto.txt tem %d linhas escritas.",numero_de_linhas);
+    system (“pause”);
+    return 0;
+}
+
+-- Faça um programa que procure uma string num ficheiro de texto  (Arquivo_palavra.txt) e diga se ela existe e em que linha(s). Mostre no écran a frase completa onde se insere a palavra encontrada.
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+	setlocale(LC_ALL,"portuguese");
+    char palavra[20], str[100];
+    int flag = 0; //uso de uma flag (bandeira), com valor zero por defeito
+    int cont;    
+    cont = 0;
+    FILE *fp;
+    fp = fopen("Arquivo_palavra.txt","r"); //ficheiro aberto para leitura (r = read)
+    if (!fp) //se o ficheiro não existe
+       exit(1); //sair
+    printf("Introduza a palavra para pesquisar no ficheiro: ");
+    fgets(palavra, sizeof(palavra), stdin); //lê uma string do teclado (stdin = standard input = teclado); também podíamos usar o scanf.
+    palavra[strlen(palavra)-1] = palavra[strlen(palavra)]; //retira o \n lido pelo fgets
+    while (fgets(str, sizeof(str), fp)!=NULL) { //lê o ficheiro linha a linha, até encontrar a str
+    	cont++;
+        if (strstr(str, palavra) != NULL){ //Verifica se uma string existe dentro de outra
+        				//podia ter usado a função strcmp (string compare)
+        	printf("String existe, na linha %i\n", cont);
+        	printf ("Frase: ");
+        	printf ("\n%s\n", str);
+        	flag = 1; //se a string existe, a flag passa a 1
+    	}
+}
+	if (flag == 0) //se flag continua em zero
+		printf("String não existe!\n"); //é porque a flag não passou a 1, ou seja, a string não foi encontrada em linha nenhuma.
+    fclose(fp);
+    return 0;
+}
+
+-- Escreva um programa que leia números inteiros do dispositivo de entrada padrão e os guarde num ficheiro binário, de nome "dados.int". De seguida, mostre o conteúdo desse ficheiro.
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+	setlocale(LC_ALL,"portuguese");
+	FILE *arq = fopen("dados.int", "ab");
+	int n, v;
+	while (1) {
+	 	printf("Diga números inteiros, ou outro caracter para terminar: ");
+	 	n = scanf("%d", &v);
+		if (n != 1) break;
+		fwrite(&v, sizeof(int), 1, arq);
+	}
+	fclose(arq);
+	if (fopen("dados.int", "rb") == NULL)
+	{
+		perror ("Fopen: ");
+		return 1;
+	}
+	rewind(arq);
+	
+	while(1){
+		n = fread(&v, sizeof(int), 1, arq);
+		if (n == 1)
+			printf("\n%d", v);
+		else
+			break;
+	}
+	return 0;
+}
+
+-- Faça um programa que escreva num ficheiro “Dados.bin” os seguintes dados e, de seguida, os leia, na forma binária: int inum =10; float fnum =2.5; double pi = 3.141516; char c ='A';
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+	setlocale(LC_ALL,"portuguese");
+	int inum = 10; float fnum = 2.5; double pi = 3.141516; char letra = 'A';
+	FILE *pa; char *nome = "Dados.bin";
+	if (( pa = fopen( nome, "w+")) == NULL ) {
+		perror ("fopen: ");
+	return 1;
+	}
+	fwrite (& inum, sizeof(int), 1, pa );
+	fwrite (& fnum, sizeof(float), 1, pa);
+	fwrite (& pi, sizeof(double), 1, pa );
+	fwrite (&letra, sizeof(char), 1, pa);
+	rewind (pa);
+	fread (&inum , sizeof(int), 1, pa);
+	fread (&fnum , sizeof(float), 1, pa);
+	fread (&pi , sizeof(double), 1, pa);
+	fread (&letra, sizeof(char), 1, pa);
+	printf ("%d, %f, %f, %c\n", inum, fnum, pi, letra);
+	fclose (pa);
+	system("pause");
+	return 0;
+}
+
+-- Escreva um programa que abra o ficheiro criado no exercício anterior e o copie para outro ficheiro; O programa termina quando não há mais dados a serem lidos.
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+	setlocale(LC_ALL,"portuguese");
+	int inum; float fnum; double pi; char letra;
+	FILE *pa; char *nome = "Dados.bin";
+	FILE *pa2; char *nome2 = "Dados2.bin";
+	if (( pa = fopen(nome, "r+")) == NULL) {
+		perror ("fopen: ");
+		return 1;
+	}
+	if ((pa2 = fopen(nome2, "w+")) == NULL) {
+		perror ("fopen: ");
+	return 1;
+	}
+	rewind (pa);
+	fread (&inum, sizeof(int), 1, pa);
+	fread (&fnum, sizeof(float), 1, pa);
+	fread (&pi, sizeof(double), 1, pa);
+	fread (&letra, sizeof(char), 1, pa);
+	printf ("Dados.bin: %d, %f, %f, %c\n", inum, fnum, pi, letra);
+	
+	fwrite (&inum, sizeof(int), 1, pa2);
+	fwrite (&fnum, sizeof(float), 1, pa2);
+	fwrite (&pi, sizeof(double), 1, pa2);
+	fwrite (&letra, sizeof(char), 1, pa2);
+	rewind (pa2);
+	fread (&inum , sizeof(int), 1, pa2);
+	fread (&fnum , sizeof(float), 1, pa2);
+	fread (&pi , sizeof(double), 1, pa2);
+	fread (&letra, sizeof(char), 1, pa2);
+	printf ("Dados2.bin: %d, %f, %f, %c\n", inum, fnum, pi, letra);
+	fclose (pa);
+	fclose (pa2);
+	system("pause");
+	return 0;
+}
+
+-- Escreva um programa que leia n números inteiros (n ≤ 100) e os escreva:  ●	No ficheiro texto "vetor.txt"  ●	No ficheiro binário "vetor.dat" 
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+    setlocale(LC_ALL, "portuguese");
+    int n, v[100]; 
+    FILE *txt, *bin; 
+    
+    // Ler o vetor da entrada
+    printf("Diga quantos números quer escrever no vetor (no máximo 99): ");
+    scanf("%d", &n);
+    printf("Diga valores inteiros para o vetor: ");
+    for (int i = 0; i < n; i++) {
+        printf("Diga o %iº: ", i + 1);
+        scanf("%d", &v[i]); 
+    }
+
+    // Escrever vetor em ficheiro de texto
+    txt = fopen("vetor.txt", "w"); 
+    if (txt == NULL) {
+        printf("Erro ao abrir o arquivo de texto!\n");
+        exit(1);
+    }
+    
+    fprintf(txt, "%d\n", n); 
+    for (int i = 0; i < n; i++) {
+        fprintf(txt, "%d ", v[i]); // Escrever vetor (elemento por elemento)
+    }
+    fclose(txt);
+
+    // Escrever vetor em ficheiro binário
+    bin = fopen("vetor.dat", "wb");  // Alterado para extensão correta .dat
+    if (bin == NULL) {
+        printf("Erro ao abrir o arquivo binário!\n");
+        exit(1);
+    }
+    
+    fwrite(&n, sizeof(int), 1, bin); 
+    fwrite(v, sizeof(int), n, bin);  // Escreve bloco de memória do vetor
+    fclose(bin);
+
+    printf("Vetor gravado com sucesso!\n");
+    
+    return 0; 
+}
+
+-- Crie uma estrutura Aluno contendo: código (int), frequência (float) e nota (float). Em seguida, crie um programa que lê os dados de n alunos e os escreve num ficheiro binário. No final, o programa deve ler as n estruturas guardadas.
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <locale.h>
+
+// Estrutura Aluno
+struct Aluno {
+    int matricula;
+    float frequencia;
+    float nota;
+};
+
+int main() {
+    setlocale(LC_ALL, "portuguese");
+    int n, i;
+    FILE *alunos;
+    
+    // Abre o arquivo binário para gravação
+    alunos = fopen("alunos.dat", "wb");
+    if (alunos == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        return 1;
+    }
+
+    // Entrada do número de alunos
+    printf("Diga o número de alunos: ");
+    scanf("%d", &n);
+
+    struct Aluno al;
+
+    // Loop para entrada de dados dos alunos
+    for (i = 0; i < n; i++) {
+        printf("Diga o número da matrícula, a frequência e a nota do %dº aluno: ", i + 1);
+        scanf("%d %f %f", &al.matricula, &al.frequencia, &al.nota);
+        fwrite(&al, sizeof(al), 1, alunos);  // Grava os dados no arquivo
+    }
+
+    fclose(alunos);  // Fecha o arquivo após a gravação
+
+    // Reabre o arquivo binário para leitura
+    alunos = fopen("alunos.dat", "rb");
+    if (alunos == NULL) {
+        printf("Erro ao abrir o arquivo para leitura!\n");
+        return 1;
+    }
+
+    printf("\nMostrar estrutura dos alunos:\n\n");
+
+    // Loop para ler e exibir os dados dos alunos
+    for (i = 0; i < n; i++) {
+        fread(&al, sizeof(al), 1, alunos);
+        printf("Matrícula: %d\n", al.matricula);
+        printf("Frequência: %.1f\n", al.frequencia);
+        printf("Nota: %.1f\n\n", al.nota);
+    }
+
+    fclose(alunos);  // Fecha o arquivo após a leitura
+
+    return 0;
+}
+
+-- Faça um programa que escreva e, de seguida,  leia os dados de 4 pessoas, com a seguinte estrutura de dados.
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdlib.h>
+typedef struct _PESSOA {
+	char nome[40]; int ano ;
+}PESSOA;
+int main() {
+    setlocale(LC_ALL,"portuguese");
+	FILE *pa;
+	char nome[40], ano[12];
+	PESSOA turma[4], back[4];
+	int i;
+	for (i =0; i <4; i ++) {
+		puts ("Nome: ");
+		fgets (turma[i].nome, 40, stdin);
+		turma[i].nome[strlen(turma[i].nome) -1] = '\0 ';
+		puts("Ano: ");
+		fgets(ano, 12, stdin);
+		sscanf(ano, "%d", &turma[i].ano);
+	}
+	puts ("\ nGravando... \n");
+	puts ("Qual o nome do ficheiro ?"); 
+	fgets (nome, 40, stdin);
+	nome[strlen(nome) -1] = '\0 ';
+	if ((pa = fopen(nome, "w+")) == NULL ) {
+		puts (" Ficheiro não pode ser aberto! ");
+		return 1;
+	}
+	for (i =0; i <4; i ++) {
+	if(fwrite(&turma[i], sizeof(PESSOA), 1, pa) != 1)
+		puts ("Erro na escrita.");
+	}
+	rewind (pa);
+	for (i =0; i <4; i ++) {
+		if (fread(&back[i], sizeof(PESSOA), 1, pa) != 1) {
+			if (feof(pa)) 
+				break;
+			puts ("Erro na leitura .");
+		}
+	}
+	for (i =0; i <4; i ++) {
+		printf ("Nome = %s\n", back[i].nome);
+		printf ("Ano = %d\n\n", back[i].ano);
+	}
+	system("pause");
+	return 0;
+}
+
+-- Crie um programa que guarde num ficheiro "Alunos.dat" o historial de vários alunos, armazenando para cada aluno: código aluno (4 dígitos numéricos), nome (50 caracteres) e ano de nascimento (4 dígitos); no início, o utilizador deverá indicar o número de alunos e, ao final, o programa deve mostrar os dados guardados de todos os alunos.
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <locale.h>
+typedef struct Aluno {
+	char nome_aluno[40]; int cod_aluno, ano_nasc_aluno;
+}Aluno;
+int main() {
+	setlocale(LC_ALL,"portuguese");
+	Aluno Alu;
+	int num_alunos, i, n;
+	FILE *al;
+	al = fopen ("Alunos.dat", "wb");
+	printf("Diga o número de alunos que quer registrar: ");
+	scanf ("%i", &num_alunos);
+	if (al == NULL ) {
+		puts ("Ficheiro não pode ser aberto! ");
+		return 1;
+	}
+	printf("\nInsira os dados dos %i alunos: \n", num_alunos);
+	for (i=1; i<=num_alunos; i++){
+		printf ("%iº aluno: \n", i);
+		printf ("\tCódigo (4 dígitos numéricos): ");
+		scanf ("%i", &Alu.cod_aluno);
+		printf ("\tNome: ");
+		scanf ("%s", &Alu.nome_aluno);
+		printf ("\tAno de nascimento (4 dígitos numéricos): ");
+		scanf ("%i", &Alu.ano_nasc_aluno);
+		fwrite(&Alu, sizeof(Alu), 1, al);
+	}
+	fclose(al);
+	al = fopen ("Alunos.dat", "rb");
+	printf("\nAlunos registrados: \n");
+	for (i=1; i<=num_alunos; i++){
+		fread(&Alu, sizeof(Alu), 1, al);
+		printf ("%iº Aluno:\n");
+		printf ("\tCódigo: %i, \tNome: %s, \t\tData de Nadcimento: %i\n", Alu.cod_aluno, Alu.nome_aluno, Alu.ano_nasc_aluno);
+	}
+	return 0;
+}
+
+-- Crie um programa que guarde os dados de n alunos num ficheiro "alunos.dat" com Nº Processo (4 dígitos), Nome (50 caracteres), Ano de frequência (4 dígitos) e Código da Turma (2 dígitos); crie também um ficheiro "Turmas.dat" com Código de turma (2 dígitos) e Designação da turma; valide as turmas ao inserir alunos, atualize o ficheiro "Turmas.dat" se a turma não existir, e ao final liste turmas por código, alunos de cada turma, todas as turmas com respetivos alunos, alunos por nº de processo, ou todos os alunos.
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <locale.h>
+typedef struct Aluno {
+	int num_proc, ano_al, cod_turma_al; char nome_al[30];
+}Aluno;
+
+typedef struct Turma {
+	int cod_turma; char designa_turma[2];
+}Turma;
+
+inserir_turmas(){
+	FILE *al, *tu;
+	Aluno A;
+	Turma T;
+	int num_turmas, i, codturma, encontrou, num_alunos;
+	printf ("\n===================Inserir turmas===================\n");
+		printf ("Quantas turmas quer inserir: ");
+		scanf ("%i", &num_turmas);
+		tu = fopen ("Turmas.dat", "a+b");
+		printf("\nDiga os dados das turmas: \n");
+		for (i=1; i<=num_turmas; i++){
+			printf ("\nCódigo da turma (2 dígitos): ");
+			scanf ("%i", &codturma);
+			encontrou = 0;
+			rewind (tu);
+			while(fread(&T, sizeof(T), 1, tu)){
+				if (codturma == T.cod_turma){
+					encontrou = 1;
+					i--;
+					printf("\nTurma já existe!\n");
+					system ("pause");
+				}
+			}
+			if (!encontrou){
+				printf ("\tDesignação (2 letras): ");
+				T.cod_turma = codturma;
+				scanf ("%s", T.designa_turma);
+				fwrite (&T, sizeof (T), 1, tu);
+				printf("Turma guardada com sucesso!\n");
+			}
+		}
+		printf ("\nTurmas guardadas com sucesso.\n");
+		fclose(tu);
+		system("pause");
+		system ("cls");
+}
+
+inserir_alunos(){
+	FILE *al, *tu;
+	Aluno A;
+	Turma T;
+	int num_turmas, i, codturma, encontrou, num_alunos, nprocaluno; char nome[30];
+	printf ("\n===================Inserir alunos===================\n");
+	printf("Diga o número de alunos que quer registar: ");
+	scanf ("%i", &num_alunos);
+	al = fopen ("Alunos.dat", "a+b");
+	tu = fopen ("Turmas.dat", "a+b");
+	if (al == NULL ) {
+		puts ("\nFicheiro não pode ser aberto! ");
+		system("pause");
+		return 1;
+	}
+	if (tu == NULL ) {
+		puts ("\nFicheiro não pode ser aberto! ");
+		system("pause");
+		return 1;
+	}
+	printf("\nInsira os dados dos %i alunos: \n", num_alunos);
+	for (i = 1; i <= num_alunos; i++){
+		printf ("\n%iº aluno: \n", i);
+		printf ("\tNº Processo: (4 dígitos numéricos): ");		
+		scanf ("%i", &nprocaluno);
+		rewind (al);
+		encontrou = 0;
+		while (fread(&A, sizeof(A), 1, al)){
+			if (A.num_proc == nprocaluno){
+				printf("\nAluno já existe!\n");
+				system ("pause");
+				encontrou = 1;
+			}
+		}
+		if (!encontrou){
+			fflush(stdin);
+			A.num_proc = nprocaluno;
+			printf ("\tNome: ");
+			gets(nome);
+			strcpy(A.nome_al, nome);
+			printf ("\tAno de frequência (2 dígitos numéricos): ");		
+			scanf ("%i", &A.ano_al);
+			printf ("\tCódigo da turma que irá frequentar (2 dígitos numéricos): ");
+			scanf ("%i", &A.cod_turma_al);
+			rewind (tu);
+			encontrou = 0;
+			while (fread(&T, sizeof(T), 1, tu)){
+				if (A.cod_turma_al == T.cod_turma){
+					printf ("\tTurma: %s\n", T.designa_turma);
+					encontrou = 1;
+				}
+			}
+			if (!encontrou){
+				printf ("\tDesignação da turma (máx 2 letras): ");
+				scanf ("%s", &T.designa_turma);
+				T.cod_turma = A.cod_turma_al;
+				fwrite (&T, sizeof (T), 1, tu);
+				printf ("Turma guardada com sucesso!\n");
+				system ("pause");
+			}
+			fwrite(&A, sizeof(A), 1, al);
+			printf ("Aluno guardado com sucesso!\n");
+			system ("pause");
+		}
+	}
+	fclose(al);
+	fclose (tu);
+	system ("cls");
+}
+
+consultar_turmas(){
+	FILE *al, *tu;
+	Aluno A;
+	Turma T;
+	int num_turmas, i, codturma, encontrou, num_alunos, nprocaluno, op2; char nome[30], desturma[2];
+	op2 = 0;
+	while (op2 != 3){
+		al = fopen ("Alunos.dat", "rb");
+		tu = fopen ("Turmas.dat", "rb");
+		printf ("\n===================Consultar turmas===================\n");
+		printf ("\nEscolha uma opção: \n");
+		printf ("\t1 - Por código\n\t2 - Todas as turmas\n\t3 - Sair para o menu anterior\n\tOpção: ");
+		scanf ("%i", &op2);
+		if (op2 == 1){
+			printf ("\n===================Turmas por código===================\n");
+			printf ("\nCódigo da turma a pesquisar: ");
+			scanf ("%i", &codturma);
+			i = 0;
+			encontrou = 0;
+			rewind (tu);
+			while(fread(&T, sizeof(T), 1, tu)){
+				if (codturma == T.cod_turma){
+					printf ("\tTurma %s\n", T.designa_turma);
+					rewind(al);
+					printf ("\tAlunos: ");
+					while (fread (&A, sizeof(A), 1, al)){
+						if (A.cod_turma_al == codturma){
+							printf ("\n\tNº Processo: %i, \tNome: %s, \tAno: %i, \tTurma: %s", A.num_proc, A.nome_al, A.ano_al, T.designa_turma);
+							encontrou = 1;
+						}
+					}
+				}
+			}
+			if (!encontrou){
+				printf ("\tNão existem alunos nesta turma!\n");
+			}
+			printf("\n");
+			system ("pause");
+			system ("cls");
+		}
+		if (op2 == 2){
+			printf ("\n===================Todas as Turmas===================\n");
+			i = 1;
+			rewind (tu);
+			rewind(al);
+			while(fread(&T, sizeof(T), 1, tu)){
+				printf ("\nTurma: %s\n", T.designa_turma);
+				encontrou = 0;
+				while (fread (&A, sizeof(A), 1, al)){
+					if (A.cod_turma_al == T.cod_turma){
+						strcpy(desturma, T.designa_turma);
+						printf ("\tAlunos:\n");
+						printf ("\tNº Processo: %i, \tNome: %s, \t\tAno: %i, Turma: %s\n", A.num_proc, A.nome_al, A.ano_al, desturma);
+						i ++;
+						encontrou = 1;
+					}
+				}
+				rewind (al);
+				if (!encontrou){
+					printf("Não existem alunos nesta turma!\n");
+				}
+			}
+			system ("pause");
+			system ("cls");
+		}
+		fclose(al);
+		fclose(tu);
+	}
+}
+
+consultar_al_n_proc(){
+	FILE *al, *tu;
+	Aluno A;
+	Turma T;
+	int num_turmas, i, codturma, encontrou, num_alunos, nprocaluno, op2; char nome[30], desturma[2];
+	printf ("\n===================Alunos por nº de processo===================\n");
+	al = fopen ("Alunos.dat", "rb");
+	tu = fopen ("Turmas.dat", "rb");
+	printf ("\nNº de processo do aluno a pesquisar: ");
+	scanf ("%i", &nprocaluno);
+	encontrou = 0;
+	while(fread(&A, sizeof(A), 1, al)){
+		if (nprocaluno == A.num_proc){
+			while (fread (&T, sizeof(T), 1, tu)){
+				if (A.cod_turma_al == T.cod_turma){
+					printf ("%iº Aluno:\n");
+					printf ("\tNº Processo: %i, \tNome: %s, \tAno: %i, \tTurma: %s\n", A.num_proc, A.nome_al, A.ano_al, T.designa_turma);
+					system ("pause");
+					system ("cls");
+				}
+				i++;
+			}
+			encontrou = 1;
+		}
+	}
+	if (!encontrou){
+		printf ("\nNº processo de aluno não existe!\n");
+		system ("pause");
+	}
+	fclose(al);
+	fclose(tu);
+	system ("pause");
+	system ("cls");
+}
+
+consultar_todos_alunos(){
+	FILE *al, *tu;
+	Aluno A;
+	Turma T;
+	int num_turmas, i, codturma, encontrou, num_alunos, nprocaluno, op2; char nome[30], desturma[2];
+	printf ("\n===================Todos os Alunos===================\n");
+	al = fopen ("Alunos.dat", "rb");
+	tu = fopen ("Turmas.dat", "rb");
+	i = 1;
+	encontrou = 0;
+	while(fread(&A, sizeof(A), 1, al)){
+		while (fread (&T, sizeof(T), 1, tu)){
+			if (A.cod_turma_al == T.cod_turma){
+				strcpy(desturma, T.designa_turma);
+				encontrou = 1;
+			}
+		}
+		if (encontrou){
+			printf ("\n%iº Aluno:\n", i);
+			printf ("\tNº Processo: %i, \tNome: %s, \t\tAno: %i, Turma: %s\n", A.num_proc, A.nome_al, A.ano_al, desturma);
+			i ++;
+			encontrou = 0;
+			rewind(tu);
+		}
+		else {
+			printf ("\nProblemas no ficheiro das turmas!");
+			system ("pause");
+		}
+	}
+	fclose(al);
+	fclose(tu);
+	system ("pause");
+	system ("cls");
+}
+
+consultar_alunos(){
+	int op2;
+	op2 = 0;
+	while (op2 != 3){
+		
+		printf ("\n===================Consultar alunos===================\n");
+		printf ("\nEscolha uma opção: \n");
+		printf ("\t1 - Por nº de processo\n\t2 - Todos os alunos\n\t3 - Sair para o menu anterior\n\tOpção: ");
+		scanf ("%i", &op2);
+
+		if (op2 == 1){
+			consultar_al_n_proc();
+		}
+		if (op2 == 2){
+			consultar_todos_alunos();
+		}
+	}
+}
+
+int main(){
+	setlocale(LC_ALL,"portuguese");
+	int op;
+	system ("cls");
+	while (op != 5){
+		printf ("\nEscolha uma opção: \n");
+		printf ("\t1 - Inserir turmas\n\t2 - Inserir alunos\n\t3 - Consultar turmas \n\t4 - Consultar alunos\n\t5 - Sair\n\tOpção: ");
+		scanf ("%i", &op);
+		if (op == 1){
+			inserir_turmas();
+		}
+
+		if (op == 2){
+			inserir_alunos();
+		}
+		
+		if (op == 3){
+			consultar_turmas();
+		}
+					
+		if (op == 4){
+			consultar_alunos();
+		}
+	}
+	system ("pause");
+	return 0;
+}
+
+-- Crie um programa que solicite os dados de n desportistas, incluindo Código Desportista, Nome, Pontuação da 1ª eliminatória, Pontuação da 2ª eliminatória e, com base nas pontuações, determine se o desportista está Apurado ou não.
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <time.h>
+#include<windows.h>
+//Estrutura de um contacto
+typedef struct Contacto {
+	int tel_cont, dia_anivers_cont, mes_anivers_cont, ano_anivers_cont; char nome_cont[40], morada_cont[40];
+}Contacto;
+//Inserir contactos
+void inserir_contactos(){
+	FILE *cont;
+	Contacto C;
+	time_t mytime;
+    mytime = time(NULL);
+    struct tm tm = *localtime(&mytime);
+    
+	int num_cont, i, encontrou, dia, mes, ano; char resp, Mes[9], nome[40], morada[40];
+	printf ("\n===================Inserir contactos===================\n");
+	printf ("Número de contactos a inserir (máx. 5): ");
+	num_cont = 0;
+	while (num_cont <1 || num_cont > 5){
+		scanf ("%d", &num_cont);
+		if (num_cont <1 || num_cont > 5){
+			printf ("Número inválido! Diga um número entre 1 e 5.");
+			fflush(stdin);
+		}
+	}
+	
+	cont = fopen ("Contactos.dat", "a+b");
+	printf("\nDiga os dados dos contactos: \n");
+	for (i=1; i<=num_cont; i++){
+		printf ("\n\tNome (completo) do %iº contacto: ", i);
+		fflush(stdin);
+		gets(nome);
+		encontrou = 0;
+		rewind (cont);
+		while(fread(&C, sizeof(C), 1, cont)){
+			if (strstr (nome, C.nome_cont)){
+				encontrou = 1;
+				i--;
+				printf("\nContacto já existe!\n");
+				system ("pause");
+			}
+		}
+		if (!encontrou){
+			strcpy(C.nome_cont, nome);
+			fflush(stdin);
+			printf ("\n\tMorada: ");
+			gets(morada);
+			strcpy(C.morada_cont, morada);
+			printf ("\n\tTelefone (9 dígitos): ");
+			scanf ("%i", &C.tel_cont);
+			fflush(stdin);
+			printf ("\n\tAniversário: ");
+			fflush(stdin);
+			printf ("\n\tDia: ");
+			dia = 0;
+			while (dia <1 || dia > 31){
+				scanf ("%i", &dia);
+				if (dia <1 || dia > 31){
+					printf ("\nDia inválido! Diga um dia entre 1 e 31: ");
+					fflush(stdin);
+				}
+			}
+			C.dia_anivers_cont = dia;
+			printf ("\n\tMês: ");
+			C.mes_anivers_cont = 0;
+			fflush(stdin);
+			while (C.mes_anivers_cont <1 || C.mes_anivers_cont > 12){
+				scanf ("%d", &C.mes_anivers_cont);
+				switch (C.mes_anivers_cont){
+					case 1:
+						strcpy(Mes, "Janeiro");
+						printf ("\t%s\n", Mes);
+						break;
+					case 2:
+						strcpy(Mes, "Fevereiro");
+						printf ("\t%s\n", Mes);
+						break;
+					case 3:
+						strcpy(Mes, "Março");
+						printf ("\t%s\n", Mes);
+						break;
+					case 4:
+						strcpy(Mes, "Abril");
+						printf ("\t%s\n", Mes);
+						break;
+					case 5:
+						strcpy(Mes, "Maio");
+						printf ("\t%s\n", Mes);
+						break;
+					case 6:
+						strcpy(Mes, "Junho");
+						printf ("\t%s\n", Mes);
+						break;
+					case 7:
+						strcpy(Mes, "Julho");
+						printf ("\t%s\n", Mes);
+						break;
+					case 8:
+						strcpy(Mes, "Agosto");
+						printf ("\t%s\n", Mes);
+						break;
+					case 9:
+						strcpy(Mes, "Setembro");
+						printf ("\t%s\n", Mes);
+						break;
+					case 10:
+						strcpy(Mes, "Outubro");
+						printf ("\t%s\n", Mes);
+						break;
+					case 11:
+						strcpy(Mes, "Novembro");
+						printf ("\t%s\n", Mes);
+						break;
+					case 12:
+						strcpy(Mes, "Dezembro");
+						printf ("\t%s\n", Mes);
+						break;
+					default:
+						printf ("\nMês inválido! Diga um mês entre 1 e 12: ");
+				}
+			}
+			printf ("\n\tAno: ");
+			ano = 0;
+			fflush(stdin);
+			while (ano < tm.tm_year + 1900 - 101 || ano > tm.tm_year + 1900){
+				scanf ("%d", &ano);
+				if (ano < tm.tm_year + 1900 - 101 || ano > tm.tm_year + 1900){
+					printf ("\nAno inválido! Diga um ano possível.");
+					fflush(stdin);
+				}
+			}
+			C.ano_anivers_cont = ano;
+			printf("\nConfirma guardar este contacto? (S/N) ");
+			resp = 0;
+			while (resp != 'S' && resp != 's' && resp != 'N' && resp != 'n'){
+				scanf ("%c",&resp);
+				if (resp != 'S' && resp != 's' && resp != 'N' && resp != 'n') {
+					printf ("Diga S ou N: ");
+					fflush(stdin);
+				}
+			}
+			if (resp == 'S' || resp == 's'){
+				fwrite (&C, sizeof (C), 1, cont);
+				printf("\nContacto guardado com sucesso!\n");
+			}
+			if (resp == 'N' || resp == 'n'){
+				printf("\nContacto não guardado!\n");
+			}
+		}
+	}
+	
+	fclose(cont);
+	system("pause");
+	system ("cls");
+
+return ;}
+//Alterar contactos
+void alterar_dados(){
+	FILE *cont, *cont_temp;
+	Contacto C;
+	time_t mytime;
+    mytime = time(NULL);
+    struct tm tm = *localtime(&mytime);
+	
+	int num_cont, i, encontrou, altera, dia, mes, ano; char resp, Mes[9], nome[40], morada[40];
+	printf ("\n===================Alterar dados de um contacto===================\n");
+	
+	printf ("Diga o nome (completo) do contacto a alterar: ");
+	fflush(stdin);
+	gets(nome);
+	cont = fopen ("Contactos.dat", "rb+");
+	system ("cls");	
+	encontrou = 0;
+	altera = 0;
+	rewind (cont);
+	num_cont = 0;
+	while(fread(&C, sizeof(C), 1, cont)){
+		num_cont++;
+		if (strstr(C.nome_cont, nome)){
+			i = num_cont;
+			encontrou = 1;
+			printf("\nDados do contacto: %s", C.nome_cont);
+			printf("\n\tTelefone: %i, \n\tMorada: %s, \n\tAniversário: %i-%i-%i\n", C.tel_cont, C.morada_cont, C.dia_anivers_cont, C.mes_anivers_cont, C.ano_anivers_cont);
+			printf("É este o contacto que quer alterar? (S/N)");
+			resp = 0;
+			scanf ("%c",&resp);
+			while (resp != 'S' && resp != 's' && resp != 'N' && resp != 'n') {
+				scanf ("%c",&resp);
+				if (resp != 'S' && resp != 's' && resp != 'N' && resp != 'n') {
+					printf ("\nDiga S ou N: ");
+					fflush(stdin);
+				}
+			}
+			if (resp == 's' || resp == 'S'){
+				altera = 1;
+				resp = 0;
+			}
+		}
+	}
+	if (altera){
+		strcpy(C.nome_cont, nome);
+		fflush(stdin);
+		printf ("\n\tMorada: ");
+		gets(morada);
+		strcpy(C.morada_cont, morada);
+		printf ("\n\tTelefone (9 dígitos): ");
+		scanf ("%i", &C.tel_cont);
+		fflush(stdin);
+		printf ("\n\tAniversário: ");
+		fflush(stdin);
+		printf ("\n\tDia: ");
+		dia = 0;
+		while (dia <1 || dia > 31){
+			scanf ("%i", &dia);
+			if (dia <1 || dia > 31){
+				printf ("\nDia inválido! Diga um dia entre 1 e 31");
+				fflush(stdin);
+			}
+		}
+		C.dia_anivers_cont = dia;
+		printf ("\n\tMês: ");
+		C.mes_anivers_cont = 0;
+		fflush(stdin);
+		while (C.mes_anivers_cont <1 || C.mes_anivers_cont > 12){
+			scanf ("%d", &C.mes_anivers_cont);
+			switch (C.mes_anivers_cont){
+				case 1:
+					strcpy(Mes, "Janeiro");
+					printf ("\t%s\n", Mes);
+					break;
+				case 2:
+					strcpy(Mes, "Fevereiro");
+					printf ("\t%s\n", Mes);
+					break;
+				case 3:
+					strcpy(Mes, "Março");
+					printf ("\t%s\n", Mes);
+					break;
+				case 4:
+					strcpy(Mes, "Abril");
+					printf ("\t%s\n", Mes);
+					break;
+				case 5:
+					strcpy(Mes, "Maio");
+					printf ("\t%s\n", Mes);
+					break;
+				case 6:
+					strcpy(Mes, "Junho");
+					printf ("\t%s\n", Mes);
+					break;
+				case 7:
+					strcpy(Mes, "Julho");
+					printf ("\t%s\n", Mes);
+					break;
+				case 8:
+					strcpy(Mes, "Agosto");
+					printf ("\t%s\n", Mes);
+					break;
+				case 9:
+					strcpy(Mes, "Setembro");
+					printf ("\t%s\n", Mes);
+					break;
+				case 10:
+					strcpy(Mes, "Outubro");
+					printf ("\t%s\n", Mes);
+					break;
+				case 11:
+					strcpy(Mes, "Novembro");
+					printf ("\t%s\n", Mes);
+					break;
+				case 12:
+					strcpy(Mes, "Dezembro");
+					printf ("\t%s\n", Mes);
+					break;
+				default:
+					printf ("\nMês inválido! Diga um mês entre 1 e 12");
+			}
+		}
+		printf ("\n\tAno: ");
+		ano = 0;
+		fflush(stdin);
+		while (ano < tm.tm_year + 1900 - 101 || ano > tm.tm_year + 1900){
+			scanf ("%d", &ano);
+			if (ano < tm.tm_year + 1900 - 101 || ano > tm.tm_year + 1900){
+				printf ("\nAno inválido! Diga um ano possível.");
+				fflush(stdin);
+			}
+		}
+		C.ano_anivers_cont = ano;
+		printf("\nConfirma atualizar este contacto? (S/N) ");
+		scanf ("%c",&resp);
+		resp = 0;
+		printf ("i: %i", i);
+		system ("pause");
+		while (resp != 'S' && resp != 's' && resp != 'N' && resp != 'n'){
+			printf ("\nDiga S ou N: ");
+			scanf ("%c",&resp);
+		}
+		if (resp == 'S' || resp == 's'){
+			fseek (cont, (i - 1) * sizeof (C), SEEK_SET);
+			fwrite (&C, sizeof (C), 1, cont);
+			printf("\nContacto atualizado com sucesso!\n");
+		}
+		if (resp == 'N' || resp == 'n'){
+			printf("\nContacto não atualizado!\n");
+			altera = 0;
+		}
+	}
+	if (!encontrou){
+		printf("\nContacto não existe!\n");
+		system("pause");
+	}	
+	fclose(cont);
+	system("pause");
+	system ("cls");
+	return;
+}
+//Remover contactos
+void remover_contactos(){
+	FILE *cont, *cont_temp;
+	Contacto C;
+	int num_cont, i, encontrou; char nome[40], morada[40], resp;
+	printf ("\n===================Remover contactos por nome===================\n");
+	printf ("Diga o nome (completo) a remover: ");
+	fflush(stdin);
+	gets(nome);
+	cont = fopen ("Contactos.dat", "rb");
+	encontrou = 0;
+	rewind (cont);
+	while(fread(&C, sizeof(C), 1, cont)){
+		if (strstr(C.nome_cont, nome)){
+			encontrou = 1;
+			printf("\nDados do contacto: %s", C.nome_cont);
+			printf("\n\tTelefone: %i, \n\tMorada: %s, \n\tAniversário: %i-%i-%i\n", C.tel_cont, C.morada_cont, C.dia_anivers_cont, C.mes_anivers_cont, C.ano_anivers_cont);
+			printf("É este o contacto que quer remover? (S/N)");
+			resp = 0;
+			while (resp != 'S' && resp != 's' && resp != 'N' && resp != 'n') {
+				scanf ("%c",&resp);
+				if (resp != 'S' && resp != 's' && resp != 'N' && resp != 'n') {
+					printf ("Diga S ou N: ");
+					fflush(stdin);
+				}
+			}
+			if (resp == 's' || resp == 'S'){
+				cont_temp = fopen ("Contactos_temp.dat", "wb");
+				rewind(cont);
+				while (fread(&C, sizeof(C), 1, cont)){
+					if (!strstr(C.nome_cont, nome)){
+						fwrite (&C, sizeof (C), 1, cont_temp);
+					}
+				}
+				fclose(cont_temp);
+				fclose(cont);
+			}
+		}
+	}
+	if (!encontrou){
+		printf("\nContacto não existe!\n");
+		system("pause");
+		fclose(cont);
+	}
+	else {
+		cont_temp = fopen ("Contactos_temp.dat", "rb");
+		cont = fopen ("Contactos.dat", "wb");
+		while (fread(&C, sizeof(C), 1, cont_temp)){
+			if (!strstr(C.nome_cont, nome)){
+				fwrite (&C, sizeof (C), 1, cont);
+			}
+		}
+		fclose(cont_temp);
+		fclose(cont);
+		remove ("Contactos_temp.dat");
+		printf ("\nContacto removido com sucesso!\n");
+	}
+	system("pause");
+	system ("cls");	
+return ;}
+//Pesquisar contactos por nome
+void pesquisar_nome(){
+	FILE *cont;
+	Contacto C;
+	int num_cont, i, encontrou; char nome[40], morada[40];
+	printf ("\n===================Pesquisar contactos por nome===================\n");
+	printf ("Diga o nome (completo) a pesquisar: ");
+	fflush(stdin);
+	gets(nome);
+	cont = fopen ("Contactos.dat", "rb");
+	system ("cls");	
+	encontrou = 0;
+	rewind (cont);
+	while(fread(&C, sizeof(C), 1, cont)){
+		if (strstr(C.nome_cont, nome)){
+			encontrou = 1;
+			printf("\nDados do contacto: %s", C.nome_cont);
+			printf("\n\tTelefone: %i, \n\tMorada: %s, \n\tAniversário: %i-%i-%i\n", C.tel_cont, C.morada_cont, C.dia_anivers_cont, C.mes_anivers_cont, C.ano_anivers_cont);
+		}
+	}
+	if (!encontrou){
+		printf("\nContacto não existe!\n");
+		system("pause");
+	}
+
+	fclose(cont);
+	system("pause");
+	system ("cls");	
+return;}
+//Mostrar todos os contactos
+void listar_todos(){
+	FILE *cont;
+	Contacto C;
+	int num_cont, i, encontrou; char nome[40], morada[40];
+	printf ("\n===================Listar todos os contactos===================\n");
+	cont = fopen ("Contactos.dat", "rb");
+	encontrou = 0;
+	system ("cls");	
+	printf ("Dados dos contactos: ");
+	i=0;
+	while(fread(&C, sizeof(C), 1, cont)){
+		encontrou = 1;
+		i++;
+		printf("\n%s", C.nome_cont);
+		printf("\n\tTelefone: %i \n\tMorada: %s \n\tAniversário: %i-%i-%i\n",C.tel_cont, C.morada_cont, C.dia_anivers_cont, C.mes_anivers_cont, C.ano_anivers_cont);
+		if (i>4){
+			printf ("\ncontinua...\n");
+			system ("pause");
+			system ("cls");
+			i=0;
+		}
+	}
+	if (!encontrou){
+		printf("\nNão existem contactos!\n");
+	}
+	fclose(cont);
+	system("pause");
+	system ("cls");	
+return;}
+//Aniversariantes de um dado mês
+void aniversariantes_mes(){
+	FILE *cont;
+	Contacto C;
+	int mes, i, encontrou; char Mes[9];
+	printf ("\n===================Pesquisar contactos por data aniversário===================\n");
+	printf ("Diga o número do mês de aniversário a pesquisar: ");
+	fflush(stdin);
+	mes = 0;
+	while (mes <1 || mes > 12){
+		scanf ("%i", &mes);
+		switch (mes){
+			case 1:
+				strcpy(Mes, "Janeiro");
+				break;
+			case 2:
+				strcpy(Mes, "Fevereiro");
+				break;
+			case 3:
+				strcpy(Mes, "Março");
+				break;
+			case 4:
+				strcpy(Mes, "Abril");
+				break;
+			case 5:
+				strcpy(Mes, "Maio");
+				break;
+			case 6:
+				strcpy(Mes, "Junho");
+				break;
+			case 7:
+				strcpy(Mes, "Julho");
+				break;
+			case 8:
+				strcpy(Mes, "Agosto");
+				break;
+			case 9:
+				strcpy(Mes, "Setembro");
+				break;
+			case 10:
+				strcpy(Mes, "Outubro");
+				break;
+			case 11:
+				strcpy(Mes, "Novembro");
+				break;
+			case 12:
+				strcpy(Mes, "Dezembro");
+				break;
+			default:
+				printf ("\nMês inválido! Diga um mês entre 1 e 12");
+		}
+	}
+	cont = fopen ("Contactos.dat", "rb");
+	encontrou = 0;
+	i=0;
+	printf("\nAniversariantes do mês de %s:", Mes);
+	while(fread(&C, sizeof(C), 1, cont)){
+		if (mes == C.mes_anivers_cont){
+			encontrou = 1;
+			i++;
+			printf("\n%s", C.nome_cont);
+			printf("\n\tTelefone: %i, \n\tMorada: %s, \n\tAniversário: %i-%i-%i\n", C.tel_cont, C.morada_cont, C.dia_anivers_cont, C.mes_anivers_cont, C.ano_anivers_cont);
+		}
+		if (i>4){
+			printf ("\ncontinua...\n");
+			system ("pause");
+			system ("cls");
+			i=0;
+		}
+	}
+	if (!encontrou){
+		printf("\nNão existem aniversariantes no mês de %s!\n", Mes);
+	}
+	fclose(cont);
+	system("pause");
+	system ("cls");	
+return;}
+//Main
+int main(){
+	setlocale(LC_ALL,"portuguese");
+	int op;
+	while (op != 7){
+		system ("cls");
+		printf ("\nEscolha uma opção: \n");
+		printf ("\t1 - Inserir contacto\n\t2 - Remover contacto\n\t3 - Pesquisar um contacto pelo nome\n\t4 - Listar todos os contactos\n\t5 - Mostrar os aniversariantes do mês\n\t6 - Alterar Dados de um contacto\n\t7 - Sair\n\tOpção: ");
+		fflush(stdin);
+		scanf ("%i", &op);
+		if (op == 1){
+			inserir_contactos();
+		}
+
+		if (op == 2){
+			remover_contactos();
+		}
+		
+		if (op == 3){
+			pesquisar_nome();
+		}
+					
+		if (op == 4){
+			listar_todos();
+		}
+		
+		if (op == 5){
+			aniversariantes_mes();
+		}
+		if (op == 6){
+			alterar_dados();
+		}
+	}
+	system ("pause");
+	return 0;
+}
+
+-- Faça um programa que procure uma string num ficheiro de texto  (File.txt). Nota: o ficheiro tem de já existir no disco!
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+    char nome[20], str[100];
+    int flag = 0; 
+    setlocale(LC_ALL,"portuguese");
+    FILE *fp;
+    ____ = fopen("file.txt"," ____"); 
+    if ( ____ ) //se o ficheiro não existe
+       exit(1); //sair
+    printf("Introduza a string para pesquisa: ");
+    ____ (nome,sizeof(nome),stdin); //lê uma string do teclado
+    nome[strlen(nome)-1]=nome[strlen(nome)]; //retira o \n lido pelo fgets
+    while (fgets(str,sizeof(str),fp) ____ NULL) { //lê o ficheiro linha a linha 
+        if (strstr(str,nome) ____ NULL){ //Verifica se uma string existe dentro de outra
+        				//podia ter usado a função strcmp (string compare)
+        	printf("String existe!\n");
+        	flag = 1;//se a string existe, a flag passa a 1
+    	}
+}
+	if (flag == 0) //se flag continua em zero
+		printf("String não existe!\n"); //é porque a flag não passou a 1, ou seja, a string não existe
+    ____ (fp);
+    return 0;
+}
+
+-- Crie um programa que, dado um vetor pré-preenchido como no exemplo abaixo, com 10 números inteiros, apresente a soma de todos os elementos.
+#include <stdio.h>
+#include <stdlib.h>
+#include<locale.h> 
+int main(void) {
+	setlocale(LC_ALL,"portuguese");
+	int  i, soma=0;
+	int vetor[] = {9,4,10,-7,18,9,11,-11,15,2};
+	printf ("Vetor original: \n");
+	for (i=0; i<10; i++){
+		printf ("%i \t",vetor[i]);
+	}
+	//soma dos elementos do vetor
+	for (i=0; i<10; i++){
+		soma= soma + vetor[i];
+	}
+	printf ("\n A soma de todos os elementos do vetor é:  %i\n", soma);
+	system("pause");
+    	return 0;
+}
+
+-- Dada uma matriz pré-preenchida como no exemplo abaixo, encontre o maior e o menor elementos da matriz, com as respectivas posições.
+#include <stdio.h>
+#include <stdlib.h>
+#include<locale.h> 
+int main(void) {
+	setlocale(LC_ALL,"portuguese");
+	int i, j, maior, linha_maior, coluna_maior, menor, linha_menor, coluna_menor;
+	int matriz[7][6] = {{55, 12, 72, 8, 15, 99}, {121, 67, -17, 78, 12, 123}, {34, 4, 71, 7, 54, 212}, {56, 12, 12, 7, 56, 33}, {34, 21, 15, 8, 0, 79}, {76, 32, 78, 78, 56, 7}, {43, 221, 321, 77, 45, 7}};
+	//Mostrar matriz original
+	printf ("Matriz original:\n");
+	for (i = 0; i < 8; i++){
+		for (j=0; j<7; j++){
+			printf ("%i\t",matriz[i][j]);
+		}
+		printf("\n");
+	}
+	//Encontrar o maior, o menor e respectivas posições
+	maior = matriz[0][0];
+	menor = matriz[0][0];
+	linha_maior = 0;
+	coluna_maior = 0;
+	linha_menor = 0;
+	coluna_menor = 0;
+	for (i=0; i<8; i++){
+		for (j=0; j<7; j++){
+			if (matriz[i][j] > maior){
+				maior = matriz[i][j];
+				linha_maior= i;
+				coluna_maior= j;
+			}
+			if (matriz[i][j] < menor[i][j]){
+				menor = matriz[i]j];
+				linha_menor= i;
+				coluna_menor= j;
+			}
+		}
+	}
+	printf ("\nO maior elemento da matriz é %i, que está na linha %i, coluna %i", maior, linha_maior, coluna_maior);
+	printf ("\nO menor elemento da matriz é %i, que está na linha %i, coluna %i\n", menor, linha_menor, coluna_menor);
+
+	system("pause");
+	return 0;
+}
