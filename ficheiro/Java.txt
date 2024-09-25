@@ -1,2 +1,280 @@
--- Em breve!
-Código em breve!
+-- Exemplo de Programa em Java para Saudações Baseadas na Hora
+package t2ex1;
+public class T2ex1 {
+    public static void main(String[] args) {
+        int hora = 15;
+        if(hora < 12){
+            System.out.println("Bom dia");
+        } else if(hora < 18){
+            System.out.println("Boa tarde");
+        } else {
+            System.out.println("Boa noite");
+        }
+    }
+}
+
+-- Exemplo de Programa em Java para Comparações de Variáveis
+package test2;
+public class Test2 {
+    public static void main(String[] args) {
+        int x = 2, y = 5, z = 2;
+        System.out.println(x == z);
+        System.out.println(x != z);
+        System.out.println(x == y);
+        System.out.println(x != y);
+        System.out.println(y > x);
+        System.out.println(y < x);
+        System.out.println(y <= x);
+        System.out.println(z >= x);
+        System.out.println(z <= y);
+    }
+}
+
+-- Exemplo de Programa em Java para Exibir o Dia da Semana Usando Switch
+package t2ex2;
+public class T2ex2 {
+    public static void main(String[] args) {
+        int dia = 4;
+        switch(dia){
+            case 1:
+                System.out.println("Segunda");
+                break;
+            case 2:
+                System.out.println("Terça");
+                break;
+            case 3:
+                System.out.println("Quarta");
+                break;
+            case 4:
+                System.out.println("Quinta");
+                break;
+            case 5:
+                System.out.println("Sexta");
+                break;
+            case 6:
+                System.out.println("Sábado");
+                break;
+            case 7:
+                System.out.println("Domingo");
+                break;
+        }
+    }
+}
+
+-- Exemplo de Programa em Java para Exibir o Dia da Semana Usando If-Else
+package t2ex3;
+public class T2ex3 {
+    public static void main(String[] args) {
+        int i=5;
+        if(i<1){
+            System.out.println("Segunda");
+        } else if(i < 2){
+            System.out.println("Terça");
+        } else if(i < 3){
+            System.out.println("Quarta");
+        } else if(i < 4){
+            System.out.println("Quinta");
+        } else if(i < 5){
+            System.out.println("Sexta");
+        } else if(i < 6){
+            System.out.println("Sábado");
+        } else {
+            System.out.println("Domingo");
+        }
+    }
+}
+
+-- Exemplo de Programa em Java para Contagem Usando While
+package t3ex1;
+public class T3ex1 {
+    public static void main(String[] args) {
+        int i = 0;
+        while (i<5){
+            System.out.println(i);
+            i++;
+        }
+    }
+}
+
+-- Exemplo de Programa em Java para Contagem Usando Do-While
+package t3ex2;
+public class T3ex2 {
+    public static void main(String[] args) {
+        int i = 0;
+        do{
+            System.out.println(i);
+            i++;
+        }
+        while (i<5);
+    }
+}
+
+-- Exemplo de Programa em Java para Contagem de 1000 a 1200 Usando Do-While
+package t3ex3;
+public class T3ex3 {
+    public static void main(String[] args) {
+        int i = 1000;
+        do{
+            System.out.println(i);
+            i++;
+        } while(i<=1200);
+    }
+}
+
+-- Exemplo de Programa em Java para Operações Aritméticas com Inteiros e Floats
+package test1;
+public class Test1 {
+    public static void main(String[] args) {
+        int x = 3, y = 4, z = 5;
+        float a = 2.14f, b = 3.52f, c = 0.29f;
+        
+        System.out.println("x = " + x + "y = " + y + "z = " + z);
+        System.out.println("a = " + a + "b = " + b +"c = " + c);
+        
+        System.out.println("x + y = " + (x+y) );
+        System.out.println("x - y = " + (x-y) );
+        System.out.println("x * y = " + (x*y) );
+        System.out.println("z / x = " + (x/y) );
+        System.out.println("z % x = " + (x%y) );
+        
+        System.out.println("a + b = " + (a+b) );
+        System.out.println("a - b = " + (a-b) );
+        System.out.println("a * b = " + (a*b) );
+        System.out.println("a / b = " + (a/b) );
+    }
+}
+
+-- Exemplo de Programa em Java para Contagem de 1000 a 2000 com Incremento de 2 Usando Do-While
+package t3ex4;
+public class T3ex4 {
+    public static void main(String[] args) {
+        int i = 1000;
+        do{
+            System.out.println(i);
+            i=i+2;
+        } while (i <= 2000);
+    }
+}
+
+-- Exemplo de Programa em Java para Impressão Usando um Ciclo For
+package com.mycompany.t4ex_for;
+public class T4ex_FOR {
+    public static void main(String[] args) {
+        int i;
+        System.out.println("\nCiclo FOR:\n");
+        for(i=0;i<=20;i++){
+            System.out.println("**** Ex" + i + " ****");
+        }
+    }
+}
+
+-- Exemplo de Programa em Java para Impressão da Tabuada do 8 Usando While e Do-While
+package com.mycompany.t4ex3_tabuada;
+public class T4ex3_tabuada {
+    public static void main(String[] args) {
+        int i, x;
+        i=0;
+        System.out.println("Tabuada com o while: \n");
+        while(i<10){
+            x=8*i;
+            System.out.println("8 x " + i + " = " + x);
+            i++;
+        }
+        i=0;
+        System.out.println("\nTabuada com do... while: \n");
+        do{
+            x=8*i;
+            System.out.println("8 x " + i + " = " + x);
+            i++;
+        }while(i<=10);
+    }
+}
+
+-- Exemplo de Programa em Java para Encontrar e Imprimir os Divisores de 123 Usando Do-While
+package com.mycompany.t4ex4;
+public class T4ex4 {
+    public static void main(String[] args) {
+        int i=1;
+        System.out.println("Divisores de 123:\n");
+        do{
+            if(123 % i == 0)
+                System.out.println(i);
+             i++;
+        }while(i<=123);
+    }
+}
+
+-- Exemplo de Programa em Java para Encontrar e Imprimir os Divisores de 496 e Calcular sua Soma Usando Do-While
+package com.mycompany.t4ex5;
+public class T4ex5 {
+    public static void main(String[] args) {
+        int i=1, x=0;
+        System.out.println("Divisores de 496:\n");
+        do{
+            if(496 % i == 0){
+                System.out.println(i);
+                x=x+i;
+            } i++;
+        }while(i<=496);
+        System.out.println("\nSoma: " + x);
+    }
+}
+
+-- Exemplo de Programa em Java para Imprimir Números Divisíveis por 3 Entre 10 e 50 Usando Do-While
+package t4ext;
+public class T4ext {
+    public static void main(String[] args) {
+        int i=10;
+        do{
+            if(i%3==0){
+                System.out.println(i);
+            }
+            i++;
+        } while(i <= 50);
+    }
+}
+
+-- Exemplo de Programa em Java para Imprimir a Tabuada do 8 Usando While e Do-While
+package com.mycompany.t4ext2_tabuada;
+public class T4ext2_tabuada {
+    public static void main(String[] args) {
+        int i=0, x;
+        System.out.println("Tabuada do 8:\n");
+        while(i<5){
+            x=0;
+            x=8*i;
+            System.out.println("8 x " + i + " = " + x);
+            i++;
+        };
+        i=5;
+        do{
+            x=0;
+            x=8*i;
+            System.out.println("8 x " + i + " = " + x);
+            i++;
+        }while(i<=10);
+    }
+}
+
+-- Exemplo de Programa em Java para Imprimir a Tabuada do 8 Usando While e Do-While
+package com.mycompany.t4ext2_tabuada;
+public class T4ext2_tabuada {
+    public static void main(String[] args) {
+        int i=0, x;
+        System.out.println("Tabuada do 8:\n");
+        while(i<5){
+            x=0;
+            x=8*i;
+            System.out.println("8 x " + i + " = " + x);
+            i++;
+        };
+        i=5;
+        do{
+            x=0;
+            x=8*i;
+            System.out.println("8 x " + i + " = " + x);
+            i++;
+        }while(i<=10);
+    }
+}
+
